@@ -1,0 +1,24 @@
+.vacancies{
+    &__container{
+        display: flex;
+        gap: 50px;
+    }
+
+    .filters{
+        flex: 0 0 25%;
+
+        &__title{
+            margin-bottom: 20px;
+        }
+    }
+
+    
+}
+
+.vacancies-list{
+    flex: 1 1 75%;
+
+    &__title{
+        margin-bottom: 20px;
+    }
+}
