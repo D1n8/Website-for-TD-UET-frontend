@@ -1,34 +1,6 @@
 
 import { VacancyCard } from '../VacancyCard';
-import { IVacancy } from '../../modules';
-
-// заглушка потом заменим на апи
-const mockVacancies: IVacancy[] = [
-  {
-    id: 1,
-    title: 'Фронтендер',
-    location: 'Москва, офис',
-    description: 'Разработка пользовательских интерфейсов для корпоративных решений',
-    requirements: 'Знание JS, HTML, CSS',
-    responsibilities: 'Верстка сайтов',
-    employment_type: 'Фронтенд',
-    salary_min: 3000,
-    salary_max: 5550,
-    published_at: ''
-  },
-  {
-    id: 2,
-    title: 'UX/UI Designer',
-    location: 'Удалённо',
-    description: 'Создание дизайн-систем и прототипирование интерфейсов',
-    requirements: '',
-    responsibilities: 'Figma, Photoshop',
-    employment_type: '',
-    salary_min: 0,
-    salary_max: 0,
-    published_at: ''
-  }
-];
+import { mockVacancies } from '../../mockVacancies';
 
 const Vacancies = () => {
 
@@ -36,7 +8,7 @@ const Vacancies = () => {
 
   return (
     <div className="vacancies">
-      <h1 className='vacancies__title title'>Наши вакансии</h1>
+      {/* <h1 className='vacancies__title title'>Наши вакансии</h1> */}
       <div className="vacancies__container">
         <div className="filters">
           <h2 className="filters__title">Фильтры</h2>

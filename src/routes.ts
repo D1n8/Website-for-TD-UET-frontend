@@ -1,8 +1,10 @@
-import Vacancy from "./components/pages/Vacancy";
+import VacancyDetails from "./components/pages/VacancyDetails";
 import About from "./components/pages/About";
-import { ABOUT_ROUTE, VACANCY_ROUTE, HOME_ROUTE, VACANCIES_LIST_ROUTE } from "./consts";
+import { ABOUT_ROUTE, VACANCY_DETAILS_ROUTE, HOME_ROUTE, VACANCIES_LIST_ROUTE, CONTACTS_ROUTE, NEWS_ROUTE } from "./consts";
 import Home from "./components/pages/Home";
 import Vacancies from "./components/pages/Vacancies";
+import Contacts from "./components/pages/Contacts";
+import News from "./components/pages/News";
 
 export const routes = [
     {
@@ -14,11 +16,19 @@ export const routes = [
         Component: Home
     },
     {
-        path: VACANCY_ROUTE, 
-        Component: Vacancy
+        path: VACANCY_DETAILS_ROUTE + '/:id', 
+        Component: VacancyDetails
     },
     {
         path: VACANCIES_LIST_ROUTE,
         Component: Vacancies
+    },
+    {
+        path: CONTACTS_ROUTE,
+        Component: Contacts
+    },
+    {
+        path: NEWS_ROUTE,
+        Component: News
     }
 ]
