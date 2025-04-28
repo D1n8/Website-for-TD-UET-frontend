@@ -5,7 +5,7 @@ export interface IVacancy {
     requirements: string;
     location: string;
     responsibilities: string;
-    employment_type: string;
+    employment_type: string[];
     salary_min: number;
     salary_max: number;
     published_at: string;
@@ -14,7 +14,7 @@ export interface IVacancy {
 export interface IVacancyCard{
     id: number,
     title: string,
-    employment_type: string,
+    employment_type: string[],
     salary_min: number,
     salary_max: number,
     published_at: string,
