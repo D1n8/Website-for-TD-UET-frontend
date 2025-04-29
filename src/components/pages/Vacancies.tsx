@@ -32,7 +32,8 @@ const Vacancies = () => {
                 salary_max={vacancy.salary_max}
                 published_at={vacancy.published_at}
                 location={vacancy.location}
-                description={vacancy.description} />
+                description={vacancy.description} 
+                format={vacancy.format} />
             ))
           ) : (
             <p className="no-results">Ничего не найдено. Попробуйте изменить параметры поиска.</p>

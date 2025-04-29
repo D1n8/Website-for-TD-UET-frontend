@@ -27,8 +27,8 @@
   margin-bottom: 20px;
 }
 .employment-type__item {
-  max-width: -moz-min-content;
-  max-width: min-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   padding: 3px 30px;
   border: 2px solid rgb(133, 133, 133);
   border-radius: 16px;
@@ -53,15 +53,15 @@
 }
 .vacancy-card__container .date {
   position: absolute;
-  max-width: -moz-min-content;
-  max-width: min-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
   bottom: 0;
   right: 0;
   font-weight: 600;
   color: rgb(133, 133, 133);
 }
 .vacancy-card__title {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   margin-bottom: 5px;
 }
@@ -70,18 +70,28 @@
   margin: 0;
 }
 .vacancy-card__location {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.vacancy-card__format {
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding: 5px 15px;
   margin-bottom: 12px;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
 }
 .vacancy-card__salary {
-  margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 15px;
   font-weight: 700;
   color: rgb(133, 133, 133);
 }
 .vacancy-card__description {
-  font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .vacancy-card__button {
   background: rgb(34, 34, 34);
@@ -155,6 +165,61 @@
 
 .burger__line:nth-child(3) {
   bottom: 0;
+}
+
+.vacancy-details {
+  margin: 60px;
+  padding: 15px 30px;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 15px;
+}
+.vacancy-details__container {
+  position: relative;
+}
+.vacancy-details__container .favorite {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.vacancy-details__title {
+  margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 700;
+}
+.vacancy-details__salary {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.vacancy-details__info {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.vacancy-details__info:last-child {
+  margin-bottom: 20px;
+}
+.vacancy-details .box {
+  margin-bottom: 25px;
+}
+.vacancy-details__subtitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.vacancy-details__text {
+  font-size: 18px;
+}
+.vacancy-details .list {
+  list-style: disc;
+  margin-left: 20px;
+}
+.vacancy-details .requirements-item:not(:last-child) {
+  margin-bottom: 5px;
+}
+.vacancy-details .responsibilities-item:not(:last-child) {
+  margin-bottom: 5px;
+}
+.vacancy-details__published-at {
+  text-align: end;
 }
 
 * {

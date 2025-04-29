@@ -17,7 +17,7 @@
 
     .date{
       position: absolute;
-      max-width: min-content;
+      max-width: max-content;
       bottom: 0;
       right: 0;
       font-weight: 600;
@@ -26,7 +26,7 @@
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 5px;
   }
@@ -37,20 +37,30 @@
   }
 
   &__location {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__format {
+    max-width: max-content;
+    padding: 5px 15px;
     margin-bottom: 12px;
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
   }
 
   &__salary {
-    margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 15px;
     font-weight: 700;
     color: rgb(133, 133, 133);
   }
 
   &__description {
-    font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   &__button {

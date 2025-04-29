@@ -16,12 +16,15 @@ export const VacancyCard = (props: IVacancyCard) => {
 
         <p className="vacancy-card__salary">Зарплата {props.salary_min} - {props.salary_max} рублей</p>
         <div className="employment-type">
-          {props?.employment_type.map((item) =>
+          {props?.employment_type.map(item =>
             <EmploymentType key={item} type={item} />
           )}
         </div>
+
         <p className="vacancy-card__description">{props.description}</p>
         <p className="vacancy-card__location">{props.location}</p>
+        <p className="vacancy-card__format">{props.format}</p>
+
         <div className="btns-container">
           <button onClick={() => history(VACANCY_DETAILS_ROUTE + `/${props.id}`)} className="vacancy-card__button vacancy-card__button_more">Подробнее</button>
           <button className="vacancy-card__button vacancy-card__button_submit">Откликнуться</button>
