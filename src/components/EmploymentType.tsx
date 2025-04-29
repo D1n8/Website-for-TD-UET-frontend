@@ -4,7 +4,7 @@ interface IEmplomentTypeProps {
 
 function EmploymentType({ type }: IEmplomentTypeProps) {
     return (
-        <div className="employment-type">
+        <div className="employment-type__item">
             <span className="employment-type__text">{type}</span>
         </div>
     )

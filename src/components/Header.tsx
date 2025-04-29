@@ -16,10 +16,10 @@ function Header() {
                 <h1 className="title">УЭТ</h1>
             </div>
             <nav className="nav">
-                <a onClick={() => history(VACANCIES_LIST_ROUTE)} className="nav__item"><span>Вакансии</span></a>
-                <a onClick={() => history(ABOUT_ROUTE)} className="nav__item"><span>О нас</span></a>
-                <a onClick={() => history(CONTACTS_ROUTE)} className="nav__item"><span>Контакты</span></a>
-                <a onClick={() => history(NEWS_ROUTE)} className="nav__item"><span>Новости</span></a>
+                <a onClick={() => history(VACANCIES_LIST_ROUTE)} className="nav__item">Вакансии</a>
+                <a onClick={() => history(ABOUT_ROUTE)} className="nav__item">О нас</a>
+                <a onClick={() => history(CONTACTS_ROUTE)} className="nav__item">Контакты</a>
+                <a onClick={() => history(NEWS_ROUTE)} className="nav__item">Новости</a>
             </nav>
         </div>
     )

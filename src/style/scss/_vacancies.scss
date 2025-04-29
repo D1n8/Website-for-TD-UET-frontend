@@ -1,32 +1,44 @@
-.vacancies{
+.vacancies {
     padding-top: 20px;
     max-width: 1400px;
     margin: 0 auto;
-    &__container{
+
+    &__container {
         display: flex;
         gap: 50px;
     }
 
-    .filters{
+    .filters {
         flex: 0 0 25%;
 
-        &__title{
+        &__title {
             margin-bottom: 20px;
         }
     }
 
-    
+
 }
 
-.vacancies-list{
+.vacancies-list {
     flex: 1 1 75%;
 
-    &__title{
+    &__title {
         margin-bottom: 20px;
     }
 }
 
-.employment-type{
-    padding: 10px;
-    border: 1px solid black;
+.employment-type {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    &__item {
+        max-width: min-content;
+        padding: 3px 30px;
+        border: 2px solid rgba(133, 133, 133, 1);
+        border-radius: 16px;
+        font-weight: 700;
+        color: rgba(133, 133, 133, 1);
+    }
+
 }

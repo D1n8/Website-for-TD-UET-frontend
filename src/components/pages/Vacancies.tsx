@@ -12,14 +12,11 @@ const Vacancies = () => {
       <div className="vacancies__container">
         <div className="filters">
           <h2 className="filters__title">Фильтры</h2>
-          <input
-            type="text"
-            placeholder="Должность или ключевые слова"
-          />
-          <input
-            type="number"
-            placeholder="Зарплата от ($)"
-          />
+          <input type="text" placeholder='Поиск'/>
+          <input type="text" placeholder="Должность или ключевые слова"/>
+
+          <p className="salary">Зароботная плата</p>
+          <input type="number" placeholder="Зарплата от ($)"/>
         </div>
 
         <div className="vacancies-list">

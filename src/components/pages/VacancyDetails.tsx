@@ -13,7 +13,7 @@ const VacancyDetails = () => {
                 <h2 className="vacancy-details__title">{vacancy?.title}</h2>
                 <span className="vacancy-details__salary">Зарплата от {vacancy?.salary_min} рублей</span>
                 {vacancy?.employment_type.map((item) => 
-                    <EmploymentType type={ item }/>
+                    <EmploymentType key={item} type={ item }/>
                 )}
             </div>
         </div>

@@ -22,8 +22,18 @@
 }
 
 .employment-type {
-  padding: 10px;
-  border: 1px solid black;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.employment-type__item {
+  max-width: -moz-min-content;
+  max-width: min-content;
+  padding: 3px 30px;
+  border: 2px solid rgb(133, 133, 133);
+  border-radius: 16px;
+  font-weight: 700;
+  color: rgb(133, 133, 133);
 }
 
 .vacancy-card {
@@ -33,46 +43,62 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px;
 }
-.vacancy-card__header {
-  margin-bottom: 12px;
+.vacancy-card__container {
+  position: relative;
+}
+.vacancy-card__container .favorite {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.vacancy-card__container .date {
+  position: absolute;
+  max-width: -moz-min-content;
+  max-width: min-content;
+  bottom: 0;
+  right: 0;
+  font-weight: 600;
+  color: rgb(133, 133, 133);
 }
 .vacancy-card__title {
   font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 4px 0;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 .vacancy-card__company {
   font-size: 14px;
   margin: 0;
 }
 .vacancy-card__location {
-  display: flex;
-  gap: 16px;
   margin-bottom: 12px;
   font-size: 14px;
-}
-.vacancy-card__salary {
-  margin-bottom: 20px;
   font-weight: 500;
 }
+.vacancy-card__salary {
+  margin-bottom: 5px;
+  font-weight: 700;
+  color: rgb(133, 133, 133);
+}
 .vacancy-card__description {
-  font-size: 14px;
-  margin-bottom: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 .vacancy-card__button {
   background: rgb(34, 34, 34);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
 }
 .vacancy-card__button_more {
+  margin-right: 10px;
+  border: 1px solid rgb(34, 34, 34);
   background-color: white;
   color: rgb(34, 34, 34);
-  border: 1px solid rgb(34, 34, 34);
-  margin-right: 10px;
+  font-weight: 600;
 }
 
 .header {
@@ -97,6 +123,8 @@
   gap: 30px;
 }
 .header .nav a {
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -136,7 +164,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 a {
