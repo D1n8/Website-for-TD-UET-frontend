@@ -1,6 +1,110 @@
+.about-page {
+  max-width: 1200px;
+  margin: 25px auto 0;
+  font-size: 18px;
+}
+.about-page__title {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.about-page__descr {
+  flex: 0 1 50%;
+  max-height: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 22px;
+  background-color: #F7E808;
+}
+.about-page__descr .def {
+  margin-bottom: 20px;
+}
+.about-page .about-bg {
+  flex: 1 0 50%;
+  max-width: 600px;
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.about-page .subtitle {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+.about-page .company-values {
+  margin-bottom: 50px;
+}
+.about-page .company-values__container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+.about-page .company-values .value-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 300px;
+  padding: 30px 15px;
+  border-radius: 10px;
+  background-color: #F7E808;
+}
+.about-page .company-values .value-box__text {
+  font-size: 20px;
+  text-align: center;
+}
+.about-page .company-values .value-box .money {
+  width: 40px;
+}
+.about-page .company-values .value-box .clock {
+  width: 40px;
+}
+.about-page .company-values .value-box .hands {
+  width: 40px;
+}
+.about-page .career {
+  width: 100%;
+  background-color: #5a5a5a;
+  padding: 50px 20px;
+  color: #fff;
+}
+.about-page .career__container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.about-page .career__subtitle {
+  color: #FFD700;
+}
+.about-page .career .item-box {
+  background-color: #797979;
+  border-left: 6px solid #FFD700;
+  padding: 20px;
+  margin-bottom: 30px;
+  color: white;
+  position: relative;
+  width: 70%;
+}
+.about-page .career .item-box__title {
+  font-size: 22px;
+}
+.about-page .career .item-box__text {
+  font-size: 16px;
+}
+.about-page .career .step-1 {
+  left: 40%;
+}
+.about-page .career .step-2 {
+  left: 20%;
+}
+.about-page .career .step-3 {
+  left: 0;
+}
+
 .vacancies {
   padding-top: 20px;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .vacancies__container {

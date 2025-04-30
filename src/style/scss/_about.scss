@@ -1,3 +1,135 @@
-.about-page { 
+.about-page {
+    max-width: 1200px;
+    margin: 25px auto 0;
+    font-size: 18px;
 
+    &__container {}
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    &__descr {
+        flex: 0 1 50%;
+        max-height: 300px;
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 22px;
+        background-color: #F7E808;
+        // color: white;
+
+        .def {
+            margin-bottom: 20px;
+        }
+    }
+
+    // figure{
+    //     margin: 20px 0;
+    //     display: flex;
+    //     justify-content: center;
+    // }
+
+    .about-bg {
+        flex: 1 0 50%;
+        max-width: 600px;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .subtitle {
+        margin-bottom: 50px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .company-values {
+        margin-bottom: 50px;
+
+        &__container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .value-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 300px;
+            padding: 30px 15px;
+            border-radius: 10px;
+            background-color: #F7E808;
+
+            &__text {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .money {
+                width: 40px;
+            }
+
+            .clock {
+                width: 40px;
+            }
+
+            .hands {
+                width: 40px;
+            }
+        }
+
+
+    }
+
+
+    .career {
+        width: 100%;
+        background-color: #5a5a5a;
+        padding: 50px 20px;
+        color: #fff;
+
+        &__container {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        &__subtitle{
+            color: #FFD700;
+        }
+
+        .item-box {
+            background-color: #797979;
+            border-left: 6px solid #FFD700;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: white;
+            position: relative;
+            width: 70%;
+    
+            &__title {
+                font-size: 22px;
+            }
+    
+            &__text {
+                font-size: 16px;
+            }
+        }
+    
+        .step-1 {
+            left: 40%;
+        }
+    
+        .step-2 {
+            left: 20%;
+        }
+    
+        .step-3 {
+            left: 0;
+        }
+    }
 }
