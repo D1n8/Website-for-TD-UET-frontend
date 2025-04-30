@@ -104,7 +104,7 @@
 
 .vacancies {
   padding-top: 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 .vacancies__container {
@@ -112,10 +112,76 @@
   gap: 50px;
 }
 .vacancies .filters {
-  flex: 0 0 25%;
+  height: -moz-max-content;
+  height: max-content;
+  background-color: #5a5a5a;
+  padding: 20px 40px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .vacancies .filters__title {
-  margin-bottom: 20px;
+  color: #FFD700;
+  font-size: 26px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.vacancies .filters__label {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ccc;
+}
+.vacancies .filter-btn-submit {
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 6px;
+  background: #FFD700;
+  color: #222;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+}
+.vacancies .filter-group {
+  margin-bottom: 25px;
+}
+.vacancies .input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #797979;
+  color: white;
+  font-size: 15px;
+}
+.vacancies .input::-moz-placeholder {
+  color: white;
+}
+.vacancies .input::placeholder {
+  color: white;
+}
+.vacancies .input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #FFD700;
+}
+.vacancies .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.vacancies .radio-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #eee;
+}
+.vacancies .radio-option input[type=radio] {
+  accent-color: #FFD700;
+  width: 18px;
+  height: 18px;
 }
 
 .vacancies-list {
@@ -134,17 +200,17 @@
   max-width: -moz-max-content;
   max-width: max-content;
   padding: 3px 30px;
-  border: 2px solid rgb(133, 133, 133);
+  border: 3px solid #FFD700;
   border-radius: 16px;
   font-weight: 700;
-  color: rgb(133, 133, 133);
+  color: #222;
 }
 
 .vacancy-card {
   background: #FFFFFF;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 16px;
 }
 .vacancy-card__container {
@@ -183,8 +249,8 @@
   max-width: max-content;
   padding: 5px 15px;
   margin-bottom: 12px;
-  border: 1px solid rgb(133, 133, 133);
-  border-radius: 5px;
+  border: 3px solid #FFD700;
+  border-radius: 50px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -333,7 +399,7 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans";
 }
 
 a {

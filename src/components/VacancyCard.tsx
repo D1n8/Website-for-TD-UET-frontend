@@ -22,7 +22,7 @@ export const VacancyCard = (props: IVacancyCard) => {
         </div>
 
         <p className="vacancy-card__description">{props.description}</p>
-        <p className="vacancy-card__location">{props.location}</p>
+        <p className="vacancy-card__location">г. {props.location}</p>
         <p className="vacancy-card__format">{props.format}</p>
 
         <div className="btns-container">

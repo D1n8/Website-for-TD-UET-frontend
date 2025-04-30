@@ -12,11 +12,62 @@ const Vacancies = () => {
       <div className="vacancies__container">
         <div className="filters">
           <h2 className="filters__title">Фильтры</h2>
-          <input type="text" placeholder='Поиск'/>
-          <input type="text" placeholder="Должность или ключевые слова"/>
 
-          <p className="salary">Зароботная плата</p>
-          <input type="number" placeholder="Зарплата от ($)"/>
+          <div className="filter-group">
+            <p className="filters__label">Ключевые слова</p>
+            <input className="input" type="text" placeholder="Профессия" />
+          </div>
+
+          <div className="filter-group">
+            <p className="filters__label">Формат работы</p>
+            <div className="radio-group">
+              <label className="radio-option">
+                <input type="radio" name="format" value="remote" />
+                <span>Удалённый</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="format" value="hybrid" />
+                <span>Гибрид</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="format" value="onsite" />
+                <span>На месте работодателя</span>
+              </label>
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <p className="filters__label">Опыт работы</p>
+            <div className="radio-group">
+              <label className="radio-option">
+                <input type="radio" name="experience" value="any" />
+                <span>Не имеет значения</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="experience" value="noexp" />
+                <span>Нет опыта</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="experience" value="1-3" />
+                <span>От 1 до 3 лет</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="experience" value="3-6" />
+                <span>От 3 до 6 лет</span>
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="experience" value="6+" />
+                <span>Более 6 лет</span>
+              </label>
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <p className="filters__label">Зарплата от ... ₽</p>
+            <input className="input" type="number" placeholder="Сумма" />
+          </div>
+
+          <button className='filter-btn-submit'>Найти</button>
         </div>
 
         <div className="vacancies-list">
@@ -32,7 +83,7 @@ const Vacancies = () => {
                 salary_max={vacancy.salary_max}
                 published_at={vacancy.published_at}
                 location={vacancy.location}
-                description={vacancy.description} 
+                description={vacancy.description}
                 format={vacancy.format} />
             ))
           ) : (

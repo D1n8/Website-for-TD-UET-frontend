@@ -1,6 +1,6 @@
 .vacancies {
     padding-top: 20px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 
     &__container {
@@ -9,12 +9,85 @@
     }
 
     .filters {
-        flex: 0 0 25%;
+        height: max-content;
+        background-color: #5a5a5a;
+        padding: 20px 40px;
+        border-radius: 16px;
+        color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
         &__title {
-            margin-bottom: 20px;
+            // color: white;
+            color: #FFD700;
+            font-size: 26px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        &__label {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #ccc;
         }
     }
+
+    .filter-btn-submit {
+        width: 100%;
+        padding: 10px 40px;
+        border-radius: 6px;
+        background: #FFD700;
+        color: #222;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .filter-group {
+        margin-bottom: 25px;
+    }
+
+    .input {
+        width: 100%;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        background-color: #797979;
+        color: white;
+        font-size: 15px;
+    }
+
+    .input::placeholder {
+        color: white;
+    }
+
+    .input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #FFD700;
+    }
+
+    .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        cursor: pointer;
+        color: #eee;
+    }
+
+    .radio-option input[type="radio"] {
+        accent-color: #FFD700;
+        width: 18px;
+        height: 18px;
+    }
+
 
 
 }
@@ -35,10 +108,10 @@
     &__item {
         max-width: max-content;
         padding: 3px 30px;
-        border: 2px solid rgba(133, 133, 133, 1);
+        border: 3px solid #FFD700;
         border-radius: 16px;
         font-weight: 700;
-        color: rgba(133, 133, 133, 1);
+        color: #222;
     }
 
 }
