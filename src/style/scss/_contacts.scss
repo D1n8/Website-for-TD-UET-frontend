@@ -1,0 +1,105 @@
+.contacts-page {
+    max-width: 1200px;
+    margin: 25px auto 25px;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    .form {
+        // max-width: 800px;
+        margin-bottom: 50px;
+        padding: 20px 70px 30px;
+        border: 1px solid black;
+        border-radius: 15px;
+
+        &__title {
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 24px;
+
+        }
+
+        &__subtitle {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        &__elem {
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1 1 30%;
+            padding: 10px;
+            border: none;
+            border-radius: 15px;
+            background-color: #EFEFEF;
+            font-size: 16px;
+        }
+
+        .msg {
+            height: 100px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 15px;
+            background-color: #EFEFEF;
+            font-size: 16px;
+            font-family: "Noto Sans";
+        }
+
+        .inputs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px 40px;
+            border-radius: 15px;
+            background: #222;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .info-container{
+        display: flex;
+        // flex-wrap: wrap;
+        gap: 20px;
+
+        .links-container{
+            margin: 50px 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        a{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    &__contacts{
+        flex: 1 1 50%;
+    }
+
+    &__map{
+        flex: 1 1 50%;
+        width: 600px;
+        height: 500px;
+        border: 5px solid #ccc;
+        border-radius: 6px;
+    }
+}
