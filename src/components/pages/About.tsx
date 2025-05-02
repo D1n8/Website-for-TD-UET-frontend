@@ -25,30 +25,34 @@ const About = () => {
                     <div className="company-values__container">
                         <div className="value-box">
                             <img src={money} alt="" className="money" />
-                            <p className="value-box__text">Доступность. <br />Предоставление оборудования по ценам ниже заводских</p>
+                            <p className="value-box__text"><b>Доступность.</b> <br />Предоставление оборудования по ценам ниже заводских</p>
                         </div>
                         <div className="value-box">
                             <img src={clock} alt="" className="clock" />
-                            <p className="value-box__text">Удобство. <br />Интернет-магазин с более чем 500 000 товаров и современным сервисом для клиентов</p>
+                            <p className="value-box__text"><b>Удобство.</b> <br />Интернет-магазин с более чем 500 000 товаров и современным сервисом для клиентов</p>
                         </div>
                         <div className="value-box">
                             <img className='hands' src={hands} alt="" />
-                            <p className="value-box__text">Надежность. <br />Сотрудничество с более чем 100 партнерами</p>
+                            <p className="value-box__text"><b>Надежность.</b> <br />Сотрудничество с более чем 100 партнерами</p>
                         </div>
                     </div>
                 </div>
                 <div className="career">
                     <p className="subtitle career__subtitle">Карьерный рост</p>
-                    <div className="career__container">
-                        <div className="item-box step-1">
-                            <p className="item-box__text"><b className='item-box__title'>Корпоративная культура</b> <br /> Дружелюбный коллектив, регулярные мероприятия и конкурсы</p>
+                    <div className="axis-wrapper">
+                        <div className="career__container">
+                            <div className="item-box step-1">
+                                <p className="item-box__text"><b className='item-box__title'>Корпоративная культура</b> <br /> Дружелюбный коллектив, регулярные мероприятия и конкурсы</p>
+                            </div>
+                            <div className="item-box step-2">
+                                <p className="item-box__text"><b className='item-box__title'>Наставничество</b> <br /> Система кураторства, обеспечивающая поддержку в адаптационный период</p>
+                            </div>
+                            <div className="item-box step-3">
+                                <p className="item-box__text"><b className='item-box__title'>Обучение с нуля</b> <br />Продвинутая программа обучения для новых сотрудников</p>
+                            </div>
                         </div>
-                        <div className="item-box step-2">
-                            <p className="item-box__text"><b className='item-box__title'>Наставничество</b> <br /> Система кураторства, обеспечивающая поддержку в адаптационный период</p>
-                        </div>
-                        <div className="item-box step-3">
-                            <p className="item-box__text"><b className='item-box__title'>Обучение с нуля</b> <br />Продвинутая программа обучения для новых сотрудников</p>
-                        </div>
+                        <div className="y-arrow"></div>
+                        <div className="x-arrow"></div>
                     </div>
                 </div>
 

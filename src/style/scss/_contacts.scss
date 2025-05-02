@@ -9,11 +9,10 @@
     }
 
     .form {
-        // max-width: 800px;
         margin-bottom: 50px;
         padding: 20px 70px 30px;
-        border: 1px solid black;
         border-radius: 15px;
+        box-shadow: 0 2px 8px rgb(0,0,0,0.2);
 
         &__title {
             margin-bottom: 10px;
@@ -36,7 +35,7 @@
             padding: 10px;
             border: none;
             border-radius: 15px;
-            background-color: #EFEFEF;
+            background-color: #ffe44b;
             font-size: 16px;
         }
 
@@ -46,7 +45,7 @@
             padding: 10px;
             border: none;
             border-radius: 15px;
-            background-color: #EFEFEF;
+            background-color: #ffe44b;
             font-size: 16px;
             font-family: "Noto Sans";
         }
@@ -62,10 +61,10 @@
             padding: 10px 40px;
             border-radius: 15px;
             background: #222;
-            color: white;
+            color: #FFD700;
             border: none;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
         }
     }
@@ -99,7 +98,7 @@
         flex: 1 1 50%;
         width: 600px;
         height: 500px;
-        border: 5px solid #ccc;
+        border: 5px solid #FFD700;
         border-radius: 6px;
     }
 }

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { routes } from "../routes"
-import { HOME_ROUTE } from "../consts"
+import { VACANCIES_LIST_ROUTE } from "../consts"
 
 const AppRouter = () => {
 
@@ -10,7 +10,7 @@ const AppRouter = () => {
                 {routes.map(({path, Component}) => 
                     <Route key={path} path={path} element={<Component/>}/>
                 )}
-                <Route path="*" element={<Navigate to={HOME_ROUTE}/>} />
+                <Route path="*" element={<Navigate to={VACANCIES_LIST_ROUTE}/>} />
    
             </Routes>
         </main>

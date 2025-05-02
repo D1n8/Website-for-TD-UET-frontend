@@ -17,7 +17,7 @@
         border-radius: 10px;
         font-size: 22px;
         background-color: #F7E808;
-        // color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
         .def {
             margin-bottom: 20px;
@@ -63,6 +63,8 @@
             padding: 30px 15px;
             border-radius: 10px;
             background-color: #F7E808;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
 
             &__text {
                 font-size: 20px;
@@ -89,45 +91,93 @@
     .career {
         width: 100%;
         background-color: #5a5a5a;
-        padding: 50px 20px;
+        padding: 50px 20px 70px;
         color: #fff;
 
-        &__container {
+        .axis-wrapper {
             position: relative;
             max-width: 700px;
             margin: 0 auto;
+            height: 400px;
+
+            .y-arrow {
+                position: absolute;
+                left: -44px;
+                top: -49px;
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-bottom: 10px solid #FFD700;
+            }
+            
+            .x-arrow {
+                position: absolute;
+                right: -109px;
+                bottom: -44px;
+                width: 0;
+                height: 0;
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+                border-left: 10px solid #FFD700;
+            }
+        }
+        
+        .axis-wrapper::before,
+        .axis-wrapper::after { 
+            content: "";
+            position: absolute;
+            background-color: #FFD700;
+            z-index: 0;
+        }
+        
+        .axis-wrapper::before {
+            left: -40px;
+            bottom: -40px;
+            width: 2px;
+            height: 120%;
+        }
+        
+        .axis-wrapper::after {
+            left: -40px;
+            bottom: -40px;
+            width: 120%;
+            height: 2px;
         }
 
-        &__subtitle{
+
+        &__subtitle {
             color: #FFD700;
         }
 
         .item-box {
-            background-color: #797979;
-            border-left: 6px solid #FFD700;
+            position: relative;
+            width: 70%;
             padding: 20px;
             margin-bottom: 30px;
             color: white;
-            position: relative;
-            width: 70%;
-    
+            background-color: #797979;
+            border-left: 6px solid #FFD700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+
             &__title {
                 font-size: 22px;
             }
-    
+
             &__text {
                 font-size: 16px;
             }
         }
-    
+
         .step-1 {
             left: 40%;
         }
-    
+
         .step-2 {
             left: 20%;
         }
-    
+
         .step-3 {
             left: 0;
         }
