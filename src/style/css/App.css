@@ -483,7 +483,7 @@
   padding: 10px;
   border: 2px solid black;
   border-radius: 15px;
-  background-color: #ffe44b;
+  background-color: #fdffbd;
   font-size: 16px;
 }
 .contacts-page .form .msg {
@@ -492,7 +492,7 @@
   padding: 10px;
   border: 2px solid black;
   border-radius: 15px;
-  background-color: #ffe44b;
+  background-color: #fdffbd;
   font-size: 16px;
   font-family: "Noto Sans";
 }
@@ -506,7 +506,7 @@
   padding: 10px 40px;
   border-radius: 15px;
   background: #222;
-  color: #FFD700;
+  color: white;
   border: none;
   cursor: pointer;
   font-size: 20px;
@@ -553,7 +553,8 @@
   z-index: 1000;
 }
 .apply-modal__container {
-  max-width: 500px;
+  max-width: 800px;
+  max-height: 90%;
   padding: 24px 40px;
   border-radius: 8px;
   background-color: #fff;
@@ -562,7 +563,7 @@
 .apply-modal__title {
   margin-bottom: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
 }
 .apply-modal__textbox {
   position: relative;
@@ -574,8 +575,19 @@
   border: none;
   background-color: transparent;
 }
+.apply-modal .first-last-name-container {
+  display: flex;
+  gap: 10px;
+}
+.apply-modal .contacts-container {
+  display: flex;
+  gap: 10px;
+}
 .apply-modal .input-box {
   margin-bottom: 10px;
+}
+.apply-modal .last-name, .apply-modal .first-name, .apply-modal .email, .apply-modal .tel {
+  flex: 1 1 50%;
 }
 .apply-modal label {
   font-size: 18px;
@@ -583,7 +595,7 @@
 .apply-modal input {
   width: 100%;
   padding: 5px;
-  background-color: #ffe44b;
+  background-color: #fdffbd;
   border-radius: 8px;
   border: 2px solid black;
   font-size: 16px;
@@ -593,11 +605,11 @@
   flex-direction: column;
 }
 .apply-modal .textarea textarea {
-  max-width: 420px;
-  min-height: 100px;
-  max-height: 200px;
+  max-width: 100%;
+  min-width: 620px;
+  max-height: 100px;
   padding: 5px;
-  background-color: #ffe44b;
+  background-color: #fdffbd;
   border-radius: 8px;
   border: 2px solid black;
   font-family: "Noto Sans";

@@ -1,9 +1,9 @@
-interface IApplyModal{
+interface IApplyModal {
   isOpen: boolean,
   onClose: () => void
 }
 
-function ApplyModal({isOpen, onClose}: IApplyModal) {
+function ApplyModal({ isOpen, onClose }: IApplyModal) {
   if (!isOpen) return null
   return (
     <div className="apply-modal">
@@ -21,14 +21,17 @@ function ApplyModal({isOpen, onClose}: IApplyModal) {
               //отправка формы
               onClose()
             }}>
-              <div className="input-box">
-                <label>Фамилия:</label>
-                <input type="text" name="lastName" placeholder="Иванов" required />
+              <div className="first-last-name-container">
+                <div className="input-box last-name">
+                  <label>Фамилия:</label>
+                  <input type="text" name="lastName" placeholder="Иванов" required />
+                </div>
+                <div className="input-box first-name">
+                  <label>Имя:</label>
+                  <input type="text" name="firstName" placeholder="Иван" required />
+                </div>
               </div>
-              <div className="input-box">
-                <label>Имя:</label>
-                <input type="text" name="firstName" placeholder="Иван" required />
-              </div>
+
               <div className="input-box">
                 <label>Отчество:</label>
                 <input type="text" name="middleName" placeholder="Иванович*" />
@@ -37,14 +40,17 @@ function ApplyModal({isOpen, onClose}: IApplyModal) {
                 <label>Дата рождения:</label>
                 <input type="date" name="dob" required />
               </div>
-              <div className="input-box">
-                <label>Email:</label>
-                <input type="email" name="email" required placeholder="example@email.com" />
+              <div className="contacts-container">
+                <div className="input-box email">
+                  <label>Email:</label>
+                  <input type="email" name="email" required placeholder="example@email.com" />
+                </div>
+                <div className="input-box tel">
+                  <label>Телефон:</label>
+                  <input type="tel" name="phone" required placeholder="+7(000) 000-00-00" />
+                </div>
               </div>
-              <div className="input-box">
-                <label>Телефон:</label>
-                <input type="tel" name="phone" required placeholder="+7(000) 000-00-00" />
-              </div>
+
               <div className="input-box textarea">
                 <label>Сопроводительное письмо:</label>
                 <textarea name="coverLetter" placeholder="Если есть*" />
