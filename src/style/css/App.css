@@ -250,11 +250,11 @@
 }
 
 .vacancy-card {
+  margin-bottom: 16px;
+  padding: 20px;
   background: #FFFFFF;
   border-radius: 12px;
-  padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 16px;
 }
 .vacancy-card__container {
   position: relative;
@@ -306,7 +306,15 @@
 .vacancy-card__description {
   margin-bottom: 10px;
 }
-.vacancy-card__button {
+.vacancy-card .btn_more {
+  margin-right: 10px;
+  border: 1px solid rgb(34, 34, 34);
+  background-color: white;
+  color: rgb(34, 34, 34);
+  font-weight: 600;
+}
+
+.btn {
   background: rgb(34, 34, 34);
   color: white;
   border: none;
@@ -316,12 +324,10 @@
   font-size: 16px;
   font-weight: 600;
 }
-.vacancy-card__button_more {
-  margin-right: 10px;
+.btn__back {
   border: 1px solid rgb(34, 34, 34);
   background-color: white;
   color: rgb(34, 34, 34);
-  font-weight: 600;
 }
 
 .header {
@@ -389,15 +395,17 @@
 }
 
 .vacancy-details {
-  margin: 60px;
-  padding: 15px 30px;
-  border: 1px solid rgb(133, 133, 133);
-  border-radius: 15px;
+  margin: 30px;
 }
 .vacancy-details__container {
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.vacancy-details__textbox {
   position: relative;
 }
-.vacancy-details__container .favorite {
+.vacancy-details__textbox .favorite {
   position: absolute;
   right: 0;
   top: 0;
@@ -473,7 +481,7 @@
 .contacts-page .form input {
   flex: 1 1 30%;
   padding: 10px;
-  border: none;
+  border: 2px solid black;
   border-radius: 15px;
   background-color: #ffe44b;
   font-size: 16px;
@@ -482,7 +490,7 @@
   height: 100px;
   width: 100%;
   padding: 10px;
-  border: none;
+  border: 2px solid black;
   border-radius: 15px;
   background-color: #ffe44b;
   font-size: 16px;
@@ -530,6 +538,76 @@
   height: 500px;
   border: 5px solid #FFD700;
   border-radius: 6px;
+}
+
+.apply-modal .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.apply-modal__container {
+  max-width: 500px;
+  padding: 24px 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.apply-modal__title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+.apply-modal__textbox {
+  position: relative;
+}
+.apply-modal .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+}
+.apply-modal .input-box {
+  margin-bottom: 10px;
+}
+.apply-modal label {
+  font-size: 18px;
+}
+.apply-modal input {
+  width: 100%;
+  padding: 5px;
+  background-color: #ffe44b;
+  border-radius: 8px;
+  border: 2px solid black;
+  font-size: 16px;
+}
+.apply-modal .textarea {
+  display: flex;
+  flex-direction: column;
+}
+.apply-modal .textarea textarea {
+  max-width: 420px;
+  min-height: 100px;
+  max-height: 200px;
+  padding: 5px;
+  background-color: #ffe44b;
+  border-radius: 8px;
+  border: 2px solid black;
+  font-family: "Noto Sans";
+}
+.apply-modal .file {
+  margin-bottom: 20px;
+}
+.apply-modal .btn-container {
+  display: flex;
+  justify-content: end;
 }
 
 * {

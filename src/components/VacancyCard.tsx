@@ -3,9 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { IVacancyCard } from '../modules';
 import { VACANCY_DETAILS_ROUTE } from '../consts';
 import EmploymentType from './EmploymentType';
+import { useState } from 'react';
+import ApplyModal from './ApplyModal';
 
 export const VacancyCard = (props: IVacancyCard) => {
   const history = useNavigate()
+  const [isOpen, setIsOpen] = useState(false)
+  
   return (
     <div className="vacancy-card">
       <div className="vacancy-card__container">
@@ -26,13 +30,12 @@ export const VacancyCard = (props: IVacancyCard) => {
         <p className="vacancy-card__format">{props.format}</p>
 
         <div className="btns-container">
-          <button onClick={() => history(VACANCY_DETAILS_ROUTE + `/${props.id}`)} className="vacancy-card__button vacancy-card__button_more">Подробнее</button>
-          <button className="vacancy-card__button vacancy-card__button_submit">Откликнуться</button>
+          <button onClick={() => history(VACANCY_DETAILS_ROUTE + `/${props.id}`)} className="btn btn_more">Подробнее</button>
+          <button className="btn btn_submit" onClick={() => setIsOpen(true)}>Откликнуться</button>
         </div>
         <p className="date">{props.published_at}</p>
       </div>
-
-
+          <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)}></ApplyModal>
     </div>
   );
 };
