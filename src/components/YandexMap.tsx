@@ -48,7 +48,7 @@ const YandexMap = () => {
 
   return (
     <div>
-      <h2 className="contacts-page__title">Карта расположения офиса</h2>
+      <h2 className="contacts-page__subtitle">Карта расположения офиса</h2>
       <div
         className="contacts-page__map"
         ref={mapRef}

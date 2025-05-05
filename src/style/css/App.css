@@ -13,7 +13,7 @@
   padding: 20px;
   border-radius: 10px;
   font-size: 22px;
-  background-color: #F7E808;
+  background-color: #FFD700;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .about-page__descr .def {
@@ -49,7 +49,7 @@
   max-width: 300px;
   padding: 30px 15px;
   border-radius: 10px;
-  background-color: #F7E808;
+  background-color: #FFD700;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .about-page .company-values .value-box__text {
@@ -366,32 +366,23 @@
 }
 
 .burger {
-  position: relative;
-  display: block;
-  width: 18px;
-  height: 25px;
+  margin: auto 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 .burger__line {
-  position: absolute;
+  height: 3px;
   width: 100%;
-  height: 5px;
-  left: 0;
-  border-radius: 2px;
   background-color: black;
-}
-
-.burger__line:nth-child(1) {
-  top: 0;
-}
-
-.burger__line:nth-child(2) {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.burger__line:nth-child(3) {
-  bottom: 0;
+  border-radius: 2px;
 }
 
 .vacancy-details {
@@ -459,6 +450,11 @@
   margin-bottom: 20px;
   font-size: 30px;
 }
+.contacts-page__subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
 .contacts-page .form {
   margin-bottom: 50px;
   padding: 20px 70px 30px;
@@ -520,7 +516,7 @@
   flex-direction: column;
   gap: 50px;
 }
-.contacts-page .info-container a {
+.contacts-page .info-container .link {
   display: flex;
   align-items: center;
   gap: 20px;

@@ -7,11 +7,11 @@ function Header() {
     return (
         <div className="header">
             <div className="header__container">
-                {/* <button className="btn-reset burger">
+                <button className="btn-reset burger">
                         <span className="burger__line"></span>
                         <span className="burger__line"></span>
                         <span className="burger__line"></span>
-                    </button> */}
+                    </button>
                 <div className="logo-container">
                     <img src={logo} alt="ТД УЭТ" className="img logo" />
                     <h1 className="title">УЭТ</h1>

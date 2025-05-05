@@ -1,10 +1,11 @@
 
 import { VacancyCard } from '../VacancyCard';
 import { mockVacancies } from '../../mockVacancies';
+import { useState } from 'react';
 
 const Vacancies = () => {
-
   const filteredVacancies = mockVacancies;
+  const [sum, setSum] = useState<string>('');
 
   return (
     <div className="vacancies">
@@ -63,8 +64,8 @@ const Vacancies = () => {
           </div>
 
           <div className="filter-group">
-            <p className="filters__label">Зарплата от ... ₽</p>
-            <input className="input" type="number" placeholder="Сумма" />
+            <p className="filters__label">Зарплата от {(sum && Number(sum) >= 0) ? sum : '...'} ₽</p>
+            <input className="input" min={0} type="number" placeholder="Сумма" value={sum} onChange={(e) => setSum(e.target.value)}/>
           </div>
 
           <button className='filter-btn-submit'>Найти</button>
