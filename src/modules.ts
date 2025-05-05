@@ -23,3 +23,11 @@ export interface IVacancyCard{
     location: string,
     description: string
 }
+
+export interface INews {
+    id: number,
+    title: string,
+    content: string,
+    image: string,
+    published_at: Date
+}

@@ -4,7 +4,7 @@ import { ABOUT_ROUTE, VACANCY_DETAILS_ROUTE, VACANCIES_LIST_ROUTE, CONTACTS_ROUT
 // import Home from "./components/pages/Home";
 import Vacancies from "./components/pages/Vacancies";
 import Contacts from "./components/pages/Contacts";
-import News from "./components/pages/News";
+import NewsPage from "./components/pages/NewsPage";
 
 export const routes = [
     {
@@ -29,6 +29,6 @@ export const routes = [
     },
     {
         path: NEWS_ROUTE,
-        Component: News
+        Component: NewsPage
     }
 ]
