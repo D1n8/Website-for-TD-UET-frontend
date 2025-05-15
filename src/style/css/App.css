@@ -234,12 +234,12 @@
   margin-bottom: 20px;
 }
 
-.employment-type {
+.activity {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
-.employment-type__item {
+.activity__item {
   max-width: -moz-max-content;
   max-width: max-content;
   padding: 3px 30px;
@@ -580,7 +580,10 @@
 .apply-modal .input-box {
   margin-bottom: 10px;
 }
-.apply-modal .last-name, .apply-modal .first-name, .apply-modal .email, .apply-modal .tel {
+.apply-modal .last-name,
+.apply-modal .first-name,
+.apply-modal .email,
+.apply-modal .tel {
   flex: 1 1 50%;
 }
 .apply-modal label {
@@ -589,7 +592,7 @@
 .apply-modal input {
   width: 100%;
   padding: 5px;
-  background-color: #fdffbd;
+  background-color: rgba(224, 224, 224, 0.5);
   border-radius: 8px;
   border: 2px solid black;
   font-size: 16px;
@@ -603,7 +606,7 @@
   min-width: 620px;
   max-height: 100px;
   padding: 5px;
-  background-color: #fdffbd;
+  background-color: rgba(224, 224, 224, 0.5);
   border-radius: 8px;
   border: 2px solid black;
   font-family: "Noto Sans";

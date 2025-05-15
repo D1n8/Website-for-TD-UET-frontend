@@ -2,14 +2,18 @@
 import { useNavigate } from 'react-router-dom';
 import { IVacancyCard } from '../modules';
 import { VACANCY_DETAILS_ROUTE } from '../consts';
-import EmploymentType from './EmploymentType';
 import { useState } from 'react';
 import ApplyModal from './ApplyModal';
+import Activity from './Activity';
+import { parseDate, parseFormatType } from '../utils';
 
 export const VacancyCard = (props: IVacancyCard) => {
-  const history = useNavigate()
-  const [isOpen, setIsOpen] = useState(false)
+  const history = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   
+  const formattedDate = parseDate(props.published_at);
+  const format = parseFormatType(props.format_type);
+
   return (
     <div className="vacancy-card">
       <div className="vacancy-card__container">
@@ -19,23 +23,23 @@ export const VacancyCard = (props: IVacancyCard) => {
         </svg>
 
         <p className="vacancy-card__salary">Зарплата {props.salary_min} - {props.salary_max} рублей</p>
-        <div className="employment-type">
-          {props?.employment_type.map(item =>
-            <EmploymentType key={item} type={item} />
+        <div className="activity">
+          {props?.activities.map(item =>
+            <Activity key={item} type={item} />
           )}
         </div>
 
         <p className="vacancy-card__description">{props.description}</p>
         <p className="vacancy-card__location">г. {props.location}</p>
-        <p className="vacancy-card__format">{props.format}</p>
+        <p className="vacancy-card__format">{format}</p>
 
         <div className="btns-container">
           <button onClick={() => history(VACANCY_DETAILS_ROUTE + `/${props.id}`)} className="btn btn_more">Подробнее</button>
           <button className="btn btn_submit" onClick={() => setIsOpen(true)}>Откликнуться</button>
         </div>
-        <p className="date">{props.published_at}</p>
+        <p className="date">{formattedDate}</p>
       </div>
-          <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)}></ApplyModal>
+      <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)}></ApplyModal>
     </div>
   );
 };

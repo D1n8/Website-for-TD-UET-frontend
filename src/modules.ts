@@ -1,12 +1,16 @@
+export type formatType = 'office' | 'hybrid' | 'online';
+export type employmentType = 'full_time' | 'part_time' | 'intern' | 'contract';
+
 export interface IVacancy {
     id: number,
     title: string,
     description: string,
     requirements: string[],
-    format: string,
+    format_type: formatType,
+    activities: string[],
     location: string,
     responsibilities: string[],
-    employment_type: string[],
+    employment_type: employmentType,
     salary_min: number,
     salary_max: number,
     published_at: string
@@ -15,13 +19,14 @@ export interface IVacancy {
 export interface IVacancyCard{
     id: number,
     title: string,
-    employment_type: string[],
+    description: string,
+    employment_type: employmentType,
+    activities: string[],
     salary_min: number,
     salary_max: number,
-    published_at: string,
-    format: string,
+    format_type: formatType,
     location: string,
-    description: string
+    published_at: string
 }
 
 export interface INews {

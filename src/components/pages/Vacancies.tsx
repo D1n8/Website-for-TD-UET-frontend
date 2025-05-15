@@ -1,10 +1,12 @@
 
+import { useGetAllVacanciesQuery } from '../../features/vacanciesApi';
 import { VacancyCard } from '../VacancyCard';
-import { mockVacancies } from '../../mockVacancies';
 import { useState } from 'react';
 
+
 const Vacancies = () => {
-  const filteredVacancies = mockVacancies;
+  const { data: vacancies, isError } = useGetAllVacanciesQuery();
+  const filteredVacancies = vacancies;
   const [sum, setSum] = useState<string>('');
 
   return (
@@ -73,22 +75,23 @@ const Vacancies = () => {
 
         <div className="vacancies-list">
           <h2 className="vacancies-list__title">Активные вакансии</h2>
-          {filteredVacancies.length > 0 ? (
-            filteredVacancies.map(vacancy => (
+          { isError ? (
+            <p className="no-results">Ничего не найдено. Попробуйте изменить параметры поиска.</p>
+          ) : (
+            filteredVacancies?.map(vacancy => (
               <VacancyCard
                 key={vacancy.id}
                 id={vacancy.id}
                 title={vacancy.title}
+                activities={vacancy.activities}
                 employment_type={vacancy.employment_type}
                 salary_min={vacancy.salary_min}
                 salary_max={vacancy.salary_max}
                 published_at={vacancy.published_at}
                 location={vacancy.location}
                 description={vacancy.description}
-                format={vacancy.format} />
+                format_type={vacancy.format_type} />
             ))
-          ) : (
-            <p className="no-results">Ничего не найдено. Попробуйте изменить параметры поиска.</p>
           )}
         </div>
       </div>
