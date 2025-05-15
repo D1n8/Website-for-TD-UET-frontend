@@ -2,16 +2,17 @@
 import { useGetAllVacanciesQuery } from '../../features/vacanciesApi';
 import { VacancyCard } from '../VacancyCard';
 import { useState } from 'react';
-
+import { userIsAdmin } from '../../features/userApi';
+import CreateVacancyModal from '../CreateVacancyModal';
 
 const Vacancies = () => {
-  const { data: vacancies, isError } = useGetAllVacanciesQuery();
+  const { data: vacancies, isError, isLoading } = useGetAllVacanciesQuery();
   const filteredVacancies = vacancies;
   const [sum, setSum] = useState<string>('');
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <div className="vacancies">
-      {/* <h1 className='vacancies__title title'>Наши вакансии</h1> */}
       <div className="vacancies__container">
         <div className="filters">
           <h2 className="filters__title">Фильтры</h2>
@@ -74,7 +75,13 @@ const Vacancies = () => {
         </div>
 
         <div className="vacancies-list">
-          <h2 className="vacancies-list__title">Активные вакансии</h2>
+          <h2 className="vacancies-list__title">Активные вакансии: {vacancies?.length}</h2>
+          {
+            userIsAdmin && (<button className='btn create-vac' onClick={() => setIsOpenModal(true)}>Создать вакансию</button>)
+          }
+          {
+            isLoading && <p>Загружаем вакансии</p>
+          }
           { isError ? (
             <p className="no-results">Ничего не найдено. Попробуйте изменить параметры поиска.</p>
           ) : (
@@ -95,6 +102,7 @@ const Vacancies = () => {
           )}
         </div>
       </div>
+      <CreateVacancyModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}></CreateVacancyModal>
     </div>
 
   );

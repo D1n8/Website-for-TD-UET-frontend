@@ -1,10 +1,11 @@
 import VacancyDetails from "./components/pages/VacancyDetails";
 import About from "./components/pages/About";
-import { ABOUT_ROUTE, VACANCY_DETAILS_ROUTE, VACANCIES_LIST_ROUTE, CONTACTS_ROUTE, NEWS_ROUTE } from "./consts";
+import { ABOUT_ROUTE, VACANCY_DETAILS_ROUTE, VACANCIES_LIST_ROUTE, CONTACTS_ROUTE, NEWS_ROUTE, ADMIN_ROUTE } from "./consts";
 // import Home from "./components/pages/Home";
 import Vacancies from "./components/pages/Vacancies";
 import Contacts from "./components/pages/Contacts";
 import NewsPage from "./components/pages/NewsPage";
+import Admin from "./components/pages/Admin";
 
 export const routes = [
     {
@@ -30,5 +31,9 @@ export const routes = [
     {
         path: NEWS_ROUTE,
         Component: NewsPage
+    },
+    {
+        path: ADMIN_ROUTE,
+        Component: Admin    
     }
 ]

@@ -1,0 +1,24 @@
+.admin{
+    display: flex;
+    max-width: 800px;
+    margin: 50px auto;
+    justify-content: center;
+
+    &__title{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    &__form{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__input{
+        padding: 10px 5px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+}
