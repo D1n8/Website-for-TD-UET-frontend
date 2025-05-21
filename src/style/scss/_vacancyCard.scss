@@ -88,8 +88,17 @@
     background-color: white;
     color: rgb(34, 34, 34);
   }
+
+  &__delete{
+    background-color: red;
+    color: white;
+  }
 }
 
 .create-vac {
+  margin-bottom: 30px;
+}
+
+.create-news{
   margin-bottom: 30px;
 }

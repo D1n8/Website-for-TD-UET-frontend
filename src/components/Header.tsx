@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../../public/logo.png'
 import { ABOUT_ROUTE, CONTACTS_ROUTE, NEWS_ROUTE, VACANCIES_LIST_ROUTE } from '../consts'
+import { userIsAdmin } from '../features/userApi'
 
 function Header() {
     const history = useNavigate()
@@ -15,12 +16,19 @@ function Header() {
                 <div className="logo-container">
                     <img src={logo} alt="ТД УЭТ" className="img logo" />
                     <h1 className="title">УЭТ</h1>
+                    <h3>Администратор</h3>
                 </div>
                 <nav className="nav">
                     <a onClick={() => history(VACANCIES_LIST_ROUTE)} className="nav__item">Вакансии</a>
                     <a onClick={() => history(ABOUT_ROUTE)} className="nav__item">О нас</a>
                     <a onClick={() => history(CONTACTS_ROUTE)} className="nav__item">Контакты</a>
                     <a onClick={() => history(NEWS_ROUTE)} className="nav__item">Новости</a>
+                    { userIsAdmin && (
+                        <a onClick={() => history()} className="nav__item">Отклики</a>
+                    )}
+                    { userIsAdmin && (
+                        <a onClick={() => history()} className="nav__item">Обратная связь</a>
+                    )}
                 </nav>
             </div>
         </div>

@@ -1,6 +1,9 @@
 import { format } from "date-fns";
 import { INews } from "../../modules";
 import News from "../News";
+import { userIsAdmin } from "../../features/userApi";
+import { useState } from "react";
+import CreateNewsModal from "../modals/CreateNewsModal";
 
 const mockNews: INews[] = [
     {
@@ -51,17 +54,20 @@ const topNews: INews = {
 
 
 function NewsPage() {
+    const [isOpenCreateNews, setIsOpenCreateNews] = useState(false);
+
     return (<div className="news-page">
         <div className="news-page__container">
             <h2 className="news-page__title">Новости</h2>
+            {userIsAdmin && (<button className="btn create-news" onClick={() => setIsOpenCreateNews(true)}>Создать новость</button>)}
             <div className="main-news">
                 <div className="main-news__textbox">
                     <p className="main-news__text">
                         <h3 className="main-news__title">{topNews.title}</h3>
-
                         {topNews.content}
                     </p>
                     <p className="main-news__date">{format(topNews.published_at, 'dd.MM.yyyy')}</p>
+                    {userIsAdmin && (<button className="btn btn__delete">Удалить</button>)}
                 </div>
 
                 <img src={topNews.image} alt="News image" />
@@ -77,6 +83,7 @@ function NewsPage() {
                 )}
             </div>
         </div>
+        <CreateNewsModal isOpen={isOpenCreateNews} onClose={() => setIsOpenCreateNews(false)} />
     </div>)
 }
 

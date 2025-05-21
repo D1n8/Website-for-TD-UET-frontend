@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { IVacancyCard } from '../modules';
 import { VACANCY_DETAILS_ROUTE } from '../consts';
 import { useState } from 'react';
-import ApplyModal from './ApplyModal';
+import ApplyModal from './modals/ApplyModal';
 import Activity from './Activity';
 import { parseDate, parseFormatType } from '../utils';
 import { userIsAdmin } from '../features/userApi';

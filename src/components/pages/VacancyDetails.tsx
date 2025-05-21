@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import Activity from "../Activity";
-import ApplyModal from "../ApplyModal";
+import ApplyModal from "../modals/ApplyModal";
 import { useState } from "react";
 import { useGetVacancyByIdQuery } from "../../features/vacanciesApi";
 import { parseDate, parseFormatType } from "../../utils";
 import { userIsAdmin } from "../../features/userApi";
+import UpdateVacancyModal from "../modals/UpdateVacancyModal";
 
 const VacancyDetails = () => {
     const { id } = useParams<{ id: string }>();
@@ -12,7 +13,8 @@ const VacancyDetails = () => {
     const { data: vacancy, isLoading, isError } = useGetVacancyByIdQuery(vacancyId!, {
         skip: !vacancyId,
     })
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenApply, setIsOpenApply] = useState(false);
+    const [isOpenUpdateVacancy, setIsOpenUpdateVacancy] = useState(false);
 
     const formattedDate = parseDate(typeof vacancy?.published_at === 'undefined' ? '' : vacancy?.published_at);
     const format = parseFormatType(typeof vacancy?.format_type === 'undefined' ? 'office' : vacancy?.format_type);
@@ -68,15 +70,22 @@ const VacancyDetails = () => {
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         {userIsAdmin ?
-                            (<button className="btn btn_submit">Изменить</button>)
+                            (
+                                <div className="btns-container">
+                                    <button className="btn btn_submit" onClick={() => setIsOpenUpdateVacancy(true)}>Изменить</button>
+                                    <button className="btn btn_delete">Удалить</button>
+                                </div>
+
+                            )
                             :
-                            (<button className="btn btn_submit" onClick={() => setIsOpen(true)}>Откликнуться</button>)
+                            (<button className="btn btn_submit" onClick={() => setIsOpenApply(true)}>Откликнуться</button>)
                         }
                         <p className="vacancy-details__published-at">Опубликовано {formattedDate}</p>
                     </div>
                 </div>
             </div>
-            <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)}></ApplyModal>
+            <ApplyModal isOpen={isOpenApply} onClose={() => setIsOpenApply(false)}></ApplyModal>
+            <UpdateVacancyModal isOpen={isOpenUpdateVacancy} onClose={() => setIsOpenUpdateVacancy(false)} vacancy={vacancy ? vacancy : { title: '', description: '', salary_max: 0, salary_min: 0 }} />
         </div>
     );
 }

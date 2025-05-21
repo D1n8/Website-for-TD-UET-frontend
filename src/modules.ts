@@ -1,5 +1,6 @@
 export type formatType = 'office' | 'hybrid' | 'online';
 export type employmentType = 'full_time' | 'part_time' | 'intern' | 'contract';
+export type experienceType = 'none' | 'zero' | '1-3_years' | '3-6_years' | 'more_6_years';
 
 export interface IVacancy {
     id: number,

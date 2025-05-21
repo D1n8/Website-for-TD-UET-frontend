@@ -86,3 +86,34 @@
         border-radius: 8px;
     }
 }
+
+.news-modal{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+
+    .input-box{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    input{
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    textarea{
+        min-width: 89%;
+        width: 100%;
+        max-height: 100px;
+        padding: 10px 5px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: 'Noto Sans';
+    }
+}

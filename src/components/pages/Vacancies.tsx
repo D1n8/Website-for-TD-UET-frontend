@@ -3,7 +3,7 @@ import { useGetAllVacanciesQuery } from '../../features/vacanciesApi';
 import { VacancyCard } from '../VacancyCard';
 import { useState } from 'react';
 import { userIsAdmin } from '../../features/userApi';
-import CreateVacancyModal from '../CreateVacancyModal';
+import CreateVacancyModal from '../modals/CreateVacancyModal';
 
 const Vacancies = () => {
   const { data: vacancies, isError, isLoading } = useGetAllVacanciesQuery();
@@ -102,7 +102,7 @@ const Vacancies = () => {
           )}
         </div>
       </div>
-      <CreateVacancyModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}></CreateVacancyModal>
+      <CreateVacancyModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)}/>
     </div>
 
   );
