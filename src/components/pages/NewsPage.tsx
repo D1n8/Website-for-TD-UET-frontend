@@ -4,6 +4,7 @@ import News from "../News";
 import { userIsAdmin } from "../../features/userApi";
 import { useState } from "react";
 import CreateNewsModal from "../modals/CreateNewsModal";
+import UpdateNewsModal from "../modals/UpdateNewsModal";
 
 const mockNews: INews[] = [
     {
@@ -51,10 +52,9 @@ const topNews: INews = {
     published_at: new Date("2025-05-05T08:00:00")
 }
 
-
-
 function NewsPage() {
     const [isOpenCreateNews, setIsOpenCreateNews] = useState(false);
+    const [isOpenUpdateNews, setIsOpenUpdateNews] = useState(false);
 
     return (<div className="news-page">
         <div className="news-page__container">
@@ -67,6 +67,7 @@ function NewsPage() {
                         {topNews.content}
                     </p>
                     <p className="main-news__date">{format(topNews.published_at, 'dd.MM.yyyy')}</p>
+                    {userIsAdmin && (<button className="btn btn__update" onClick={() => setIsOpenUpdateNews(true)}>Изменить</button>)}
                     {userIsAdmin && (<button className="btn btn__delete">Удалить</button>)}
                 </div>
 
@@ -84,6 +85,8 @@ function NewsPage() {
             </div>
         </div>
         <CreateNewsModal isOpen={isOpenCreateNews} onClose={() => setIsOpenCreateNews(false)} />
+        <UpdateNewsModal isOpen={isOpenUpdateNews} onClose={() => setIsOpenUpdateNews(false)} news={topNews} />
+
     </div>)
 }
 

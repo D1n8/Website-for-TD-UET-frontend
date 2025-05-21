@@ -87,7 +87,7 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
                 isOpen && (
                     <Modal onClose={onClose}>
                         <h2 className="modal__title">Создать вакансию</h2>
-                        <form className="create-vacancy-modal" action="POST">
+                        <form className="create-vacancy-modal">
                             <label htmlFor="title">Название</label>
                             <input className="input" type="text" id="title" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)}/>
                             <label htmlFor="descr">Описание</label>

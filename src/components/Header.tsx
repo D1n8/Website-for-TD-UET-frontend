@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import logo from '../../public/logo.png'
-import { ABOUT_ROUTE, CONTACTS_ROUTE, NEWS_ROUTE, VACANCIES_LIST_ROUTE } from '../consts'
+import { ABOUT_ROUTE, CONTACTS_ROUTE, FEEDBACK_ROUTE, NEWS_ROUTE, RESPONSES_ROUTE, VACANCIES_LIST_ROUTE } from '../consts'
 import { userIsAdmin } from '../features/userApi'
 
 function Header() {
@@ -24,10 +24,10 @@ function Header() {
                     <a onClick={() => history(CONTACTS_ROUTE)} className="nav__item">Контакты</a>
                     <a onClick={() => history(NEWS_ROUTE)} className="nav__item">Новости</a>
                     { userIsAdmin && (
-                        <a onClick={() => history()} className="nav__item">Отклики</a>
+                        <a onClick={() => history(RESPONSES_ROUTE)} className="nav__item">Отклики</a>
                     )}
                     { userIsAdmin && (
-                        <a onClick={() => history()} className="nav__item">Обратная связь</a>
+                        <a onClick={() => history(FEEDBACK_ROUTE)} className="nav__item">Обратная связь</a>
                     )}
                 </nav>
             </div>

@@ -12,6 +12,7 @@ export interface IVacancy {
     location: string,
     responsibilities: string[],
     employment_type: employmentType,
+    experience_type: experienceType,
     salary_min: number,
     salary_max: number,
     published_at: string
@@ -22,6 +23,7 @@ export interface IVacancyCard{
     title: string,
     description: string,
     employment_type: employmentType,
+    experience_type: experienceType,
     activities: string[],
     salary_min: number,
     salary_max: number,

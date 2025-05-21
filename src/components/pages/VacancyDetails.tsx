@@ -72,8 +72,8 @@ const VacancyDetails = () => {
                         {userIsAdmin ?
                             (
                                 <div className="btns-container">
-                                    <button className="btn btn_submit" onClick={() => setIsOpenUpdateVacancy(true)}>Изменить</button>
-                                    <button className="btn btn_delete">Удалить</button>
+                                    <button className="btn btn__update" onClick={() => setIsOpenUpdateVacancy(true)}>Изменить</button>
+                                    <button className="btn btn__delete">Удалить</button>
                                 </div>
 
                             )
@@ -85,7 +85,7 @@ const VacancyDetails = () => {
                 </div>
             </div>
             <ApplyModal isOpen={isOpenApply} onClose={() => setIsOpenApply(false)}></ApplyModal>
-            <UpdateVacancyModal isOpen={isOpenUpdateVacancy} onClose={() => setIsOpenUpdateVacancy(false)} vacancy={vacancy ? vacancy : { title: '', description: '', salary_max: 0, salary_min: 0 }} />
+            <UpdateVacancyModal isOpen={isOpenUpdateVacancy} onClose={() => setIsOpenUpdateVacancy(false)} vacancy={vacancy ? vacancy : { title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }} />
         </div>
     );
 }

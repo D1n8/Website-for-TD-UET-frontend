@@ -16,7 +16,7 @@ function CreateNewsModal({ isOpen, onClose }: ICreateNewsProps) {
             isOpen && (
                 <Modal onClose={onClose}>
                     <h2 className="modal__title">Создать новость</h2>
-                    <form action="POST" className="news-modal">
+                    <form className="news-modal">
                         <div className="input-box">
                             <label htmlFor="title">Заголовок:</label>
                             <input type="text" id='title' placeholder="Заголовок" value={title} onChange={(e) => setTitle(e.target.value)} />

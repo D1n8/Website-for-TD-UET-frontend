@@ -6,21 +6,37 @@ import { formatType, employmentType, experienceType, IVacancy } from "../../modu
 interface UpdateVacancyModal {
     isOpen: boolean,
     onClose: () => void,
-    vacancy: IVacancy | {title: '', description: '', salary_max: 0, salary_min: 0}//ДОПОЛНИТЬ
+    vacancy: IVacancy | { title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }
 }
 
-function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
-    const [title, setTitle] = useState<string>(vacancy?.title);
+function UpdateVacancyModal({ isOpen, onClose, vacancy }: UpdateVacancyModal) {
+    const [title, setTitle] = useState<string>(vacancy.title);
     const [descr, setDescr] = useState<string>(vacancy.description);
     const [minSalary, setMinSalary] = useState<number>(vacancy.salary_min);
-    const [maxSalary, setMaxSalary] = useState<number>(vacancy.salary_max); 
-    // брать состояние из вакансии
-    const [activities, setActivities] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
-    const [requirements, setRequirements] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
-    const [responsibilities, setResponsibilities] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
-    const [formatType, setFormatType] = useState<formatType>('office');
-    const [employment, setEmployment] = useState<employmentType>('full_time');
-    const [experience, setExperience] = useState<experienceType>('none');
+    const [maxSalary, setMaxSalary] = useState<number>(vacancy.salary_max);
+    const [location, setLocation] = useState<string>(vacancy.location);
+    const [activities, setActivities] = useState<IInput[]>(
+        'activities' in vacancy && Array.isArray(vacancy.activities) && vacancy.activities.length
+            ? vacancy.activities.map((name: string) => ({ id: Date.now() + Math.random(), name }))
+            : [{ id: Date.now(), name: '' }]
+    );
+
+    const [requirements, setRequirements] = useState<IInput[]>(
+        'requirements' in vacancy && Array.isArray(vacancy.requirements) && vacancy.requirements.length
+            ? vacancy.requirements.map((name: string) => ({ id: Date.now() + Math.random(), name }))
+            : [{ id: Date.now(), name: '' }]
+    );
+
+    const [responsibilities, setResponsibilities] = useState<IInput[]>(
+        'responsibilities' in vacancy && Array.isArray(vacancy.responsibilities) && vacancy.responsibilities.length
+            ? vacancy.responsibilities.map((name: string) => ({ id: Date.now() + Math.random(), name }))
+            : [{ id: Date.now(), name: '' }]
+    );
+
+
+    const [formatType, setFormatType] = useState<formatType>(vacancy.format_type);
+    const [employment, setEmployment] = useState<employmentType>(vacancy.employment_type);
+    const [experience, setExperience] = useState<experienceType>(vacancy.experience_type);
 
     const handleChangeFormat = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFormatType(e.target.value as formatType);
@@ -85,18 +101,24 @@ function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
                 isOpen && (
                     <Modal onClose={onClose}>
                         <h2 className="modal__title">Создать вакансию</h2>
-                        <form className="create-vacancy-modal" action="POST">
+                        <form className="create-vacancy-modal">
                             <label htmlFor="title">Название</label>
-                            <input className="input" type="text" id="title" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                            <input className="input" type="text" id="title" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)} />
                             <label htmlFor="descr">Описание</label>
-                            <textarea id="descr" placeholder="Описание" value={descr} onChange={(e) => setDescr(e.target.value)}/>
+                            <textarea id="descr" placeholder="Описание" value={descr} onChange={(e) => setDescr(e.target.value)} />
                             <div className="top-container">
                                 <div id="requirements" className="items-box requirements-box">
                                     <p>Требования</p>
                                     {
                                         requirements.map((req) => (
                                             <div className="requirement-container" key={req.id}>
-                                                <input className="input input__spec" type="text" placeholder="Требование" onChange={(e) => updateRequirement(req.id, e.target.value)} />
+                                                <input
+                                                    className="input input__spec"
+                                                    type="text"
+                                                    placeholder="Требование"
+                                                    value={req.name}
+                                                    onChange={(e) => updateRequirement(req.id, e.target.value)}
+                                                />
                                                 <button className="delete-btn" type='button' onClick={() => removeRequirement(req.id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
                                                         <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)"></path><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)"></path>
@@ -113,7 +135,14 @@ function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
                                     {
                                         responsibilities.map((res) => (
                                             <div className="resposibility-container" key={res.id}>
-                                                <input className="input input__spec" type="text" placeholder="Обязанность" onChange={(e) => updateResposibility(res.id, e.target.value)} />
+                                                <input
+                                                    className="input input__spec"
+                                                    type="text"
+                                                    placeholder="Обязанность"
+                                                    value={res.name}
+                                                    onChange={(e) => updateResposibility(res.id, e.target.value)}
+                                                />
+
                                                 <button className="delete-btn" type='button' onClick={() => removeResposibility(res.id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
                                                         <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)"></path><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)"></path>
@@ -129,8 +158,8 @@ function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
                             <div className="top-container">
                                 <div className="items-box salary-container">
                                     <p>Зарплата</p>
-                                    <input className="input" type="number" id="min" placeholder="Минимальная зарплата ₽" value={minSalary} onChange={(e) => setMinSalary(Number(e.target.value))}/>
-                                    <input className="input" type="number" id="max" placeholder="Максимальная зарплата ₽" value={maxSalary} onChange={(e) => setMaxSalary(Number(e.target.value))}/>
+                                    <input className="input" type="number" id="min" placeholder="Минимальная зарплата ₽" value={minSalary} onChange={(e) => setMinSalary(Number(e.target.value))} />
+                                    <input className="input" type="number" id="max" placeholder="Максимальная зарплата ₽" value={maxSalary} onChange={(e) => setMaxSalary(Number(e.target.value))} />
                                 </div>
 
                                 <div className="items-box activities-box">
@@ -138,7 +167,13 @@ function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
                                     {
                                         activities.map((act) => (
                                             <div className="activity-container" key={act.id}>
-                                                <input className="input input__spec" type="text" placeholder="Вид деятельности" onChange={(e) => updateActivity(act.id, e.target.value)} />
+                                                <input
+                                                    className="input input__spec"
+                                                    type="text"
+                                                    placeholder="Вид деятельности"
+                                                    value={act.name}
+                                                    onChange={(e) => updateActivity(act.id, e.target.value)}
+                                                />
                                                 <button className="delete-btn" type='button' onClick={() => removeActivity(act.id)}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
                                                         <path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)"></path><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)"></path>
@@ -173,7 +208,7 @@ function UpdateVacancyModal({isOpen, onClose, vacancy}: UpdateVacancyModal) {
                             <div className="top-container">
                                 <div className="location-container items-box">
                                     <label htmlFor="city">Город</label>
-                                    <input className="input" id="city" type="text" placeholder="Город" />
+                                    <input className="input" id="city" type="text" placeholder="Город" value={location} onChange={(e) => setLocation(e.target.value)} />
                                 </div>
 
                                 <div className="items-box experience-container">

@@ -333,7 +333,6 @@
   background-color: red;
   color: white;
 }
-
 .create-vac {
   margin-bottom: 30px;
 }
@@ -452,6 +451,10 @@
 }
 .vacancy-details__published-at {
   text-align: end;
+}
+.vacancy-details .btns-container {
+  display: flex;
+  gap: 10px;
 }
 
 .contacts-page {
@@ -676,6 +679,11 @@
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 8px;
+}
+.news-card .btns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .main-news {

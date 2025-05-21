@@ -97,7 +97,8 @@ const Vacancies = () => {
                 published_at={vacancy.published_at}
                 location={vacancy.location}
                 description={vacancy.description}
-                format_type={vacancy.format_type} />
+                format_type={vacancy.format_type} 
+                experience_type={vacancy.experience_type}/>
             ))
           )}
         </div>

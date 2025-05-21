@@ -50,6 +50,12 @@
         object-fit: cover;
         border-radius: 8px;
     }
+
+    .btns-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 .main-news{
