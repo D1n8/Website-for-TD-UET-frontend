@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import { employmentType, formatType, experienceType } from "../../modules";
+import { useCreateVacancyMutation } from "../../features/vacanciesApi";
 
 interface CreateVacancyModalProps {
     isOpen: boolean;
@@ -16,13 +17,37 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
     const [title, setTitle] = useState<string>('');
     const [descr, setDescr] = useState<string>('');
     const [minSalary, setMinSalary] = useState<number>();
-    const [maxSalary, setMaxSalary] = useState<number>();   
+    const [maxSalary, setMaxSalary] = useState<number>();
+    const [location, setLocation] = useState<string>('');
     const [activities, setActivities] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
     const [requirements, setRequirements] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
     const [responsibilities, setResponsibilities] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
     const [formatType, setFormatType] = useState<formatType>('office');
     const [employment, setEmployment] = useState<employmentType>('full_time');
     const [experience, setExperience] = useState<experienceType>('none');
+
+    const [createVacancy] = useCreateVacancyMutation();
+
+    const handleCreateVacancy = async () => {
+        try {
+            await createVacancy({
+                title: title,
+                description: descr,
+                salary_min: minSalary,
+                salary_max: maxSalary,
+                location: location,
+                activities: activities.map(act => act.name),
+                requirements: requirements.map(req => req.name),
+                responsibilities: responsibilities.map(res => res.name),
+                format_type: formatType,
+                employment_type: employment,
+                experience_type: experience
+            }).unwrap();
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 
     const handleChangeFormat = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFormatType(e.target.value as formatType);
@@ -89,9 +114,9 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
                         <h2 className="modal__title">Создать вакансию</h2>
                         <form className="create-vacancy-modal">
                             <label htmlFor="title">Название</label>
-                            <input className="input" type="text" id="title" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                            <input className="input" type="text" id="title" placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)} />
                             <label htmlFor="descr">Описание</label>
-                            <textarea id="descr" placeholder="Описание" value={descr} onChange={(e) => setDescr(e.target.value)}/>
+                            <textarea id="descr" placeholder="Описание" value={descr} onChange={(e) => setDescr(e.target.value)} />
                             <div className="top-container">
                                 <div id="requirements" className="items-box requirements-box">
                                     <p>Требования</p>
@@ -131,8 +156,8 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
                             <div className="top-container">
                                 <div className="items-box salary-container">
                                     <p>Зарплата</p>
-                                    <input className="input" type="number" id="min" placeholder="Минимальная зарплата ₽" value={minSalary} onChange={(e) => setMinSalary(Number(e.target.value))}/>
-                                    <input className="input" type="number" id="max" placeholder="Максимальная зарплата ₽" value={maxSalary} onChange={(e) => setMaxSalary(Number(e.target.value))}/>
+                                    <input className="input" type="number" id="min" placeholder="Минимальная зарплата ₽" value={minSalary} onChange={(e) => setMinSalary(Number(e.target.value))} />
+                                    <input className="input" type="number" id="max" placeholder="Максимальная зарплата ₽" value={maxSalary} onChange={(e) => setMaxSalary(Number(e.target.value))} />
                                 </div>
 
                                 <div className="items-box activities-box">
@@ -175,7 +200,7 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
                             <div className="top-container">
                                 <div className="location-container items-box">
                                     <label htmlFor="city">Город</label>
-                                    <input className="input" id="city" type="text" placeholder="Город" />
+                                    <input className="input" id="city" type="text" placeholder="Город" value={location} onChange={(e) => setLocation(e.target.value)} />
                                 </div>
 
                                 <div className="items-box experience-container">
@@ -183,14 +208,18 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
                                     <select className="type-selector" id="exp" value={experience} onChange={hanldeChangeExperience}>
                                         <option value="none">Не имеет значения</option>
                                         <option value="zero">Нет опыта</option>
-                                        <option value="1-3_years">От 1 до 3 лет</option>
-                                        <option value="3-6_years">От 3 до 6 лет</option>
-                                        <option value="more_6_years">Более 6 лет</option>
+                                        <option value='one_to_three_years'>От 1 до 3 лет</option>
+                                        <option value="three_to_six_years">От 3 до 6 лет</option>
+                                        <option value="more_six_years">Более 6 лет</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <button className="btn">Сохранить</button>
+                            <button className="btn" onClick={(e) => {
+                                e.preventDefault();
+                                handleCreateVacancy();
+                                onClose();
+                            }}>Сохранить</button>
                         </form>
                     </Modal>)
             }

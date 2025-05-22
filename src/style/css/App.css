@@ -287,6 +287,14 @@
   font-size: 18px;
   font-weight: 600;
 }
+.vacancy-card__employment {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.vacancy-card__experience {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
 .vacancy-card__format {
   max-width: -moz-max-content;
   max-width: max-content;

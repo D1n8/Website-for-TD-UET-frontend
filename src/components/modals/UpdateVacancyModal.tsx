@@ -2,14 +2,18 @@ import { useState } from "react";
 import Modal from "./Modal";
 import { IInput } from "./CreateVacancyModal";
 import { formatType, employmentType, experienceType, IVacancy } from "../../modules";
+import { useUpdateVacancyMutation } from "../../features/vacanciesApi";
+import { useNavigate } from "react-router-dom";
+import { VACANCIES_LIST_ROUTE } from "../../consts";
 
-interface UpdateVacancyModal {
+interface IUpdateVacancyModal {
     isOpen: boolean,
     onClose: () => void,
-    vacancy: IVacancy | { title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }
+    vacancy: IVacancy | { id: 0, title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }
 }
 
-function UpdateVacancyModal({ isOpen, onClose, vacancy }: UpdateVacancyModal) {
+function UpdateVacancyModal({ isOpen, onClose, vacancy }: IUpdateVacancyModal) {
+    const history = useNavigate();
     const [title, setTitle] = useState<string>(vacancy.title);
     const [descr, setDescr] = useState<string>(vacancy.description);
     const [minSalary, setMinSalary] = useState<number>(vacancy.salary_min);
@@ -37,6 +41,31 @@ function UpdateVacancyModal({ isOpen, onClose, vacancy }: UpdateVacancyModal) {
     const [formatType, setFormatType] = useState<formatType>(vacancy.format_type);
     const [employment, setEmployment] = useState<employmentType>(vacancy.employment_type);
     const [experience, setExperience] = useState<experienceType>(vacancy.experience_type);
+
+    const [updateVacancy] = useUpdateVacancyMutation();
+
+    const handleUpdateVacancy = async () => {
+        try {
+            await updateVacancy({
+                id: vacancy.id, data: {
+                    title: title,
+                    description: descr,
+                    salary_min: minSalary,
+                    salary_max: maxSalary,
+                    location: location,
+                    activities: activities.map((act) => act.name),
+                    requirements: requirements.map((req) => req.name),
+                    responsibilities: responsibilities.map((res) => res.name),
+                    format_type: formatType,
+                    employment_type: employment,
+                    experience_type: experience
+                }
+            }).unwrap();
+        } catch (e) {
+            console.log(e);
+            throw e;
+        }
+    }
 
     const handleChangeFormat = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFormatType(e.target.value as formatType);
@@ -223,7 +252,11 @@ function UpdateVacancyModal({ isOpen, onClose, vacancy }: UpdateVacancyModal) {
                                 </div>
                             </div>
 
-                            <button className="btn">Сохранить</button>
+                            <button className="btn" onClick={(e) => {
+                                e.preventDefault();
+                                handleUpdateVacancy();
+                                history(VACANCIES_LIST_ROUTE);
+                            }}>Сохранить</button>
                         </form>
                     </Modal>)
             }
