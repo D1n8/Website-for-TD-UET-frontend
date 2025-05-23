@@ -1,6 +1,44 @@
+import { useState } from "react";
+import { useCreateContactRequestMutation } from "../../features/contactRequestsApi";
 import YandexMap from "../YandexMap"
 
 function Contacts() {
+    const [name, setName] = useState<string>('');
+    const [surname, setSurname] = useState<string>('');
+    const [patronymic, setPatronymic] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+
+    const [createRequest] = useCreateContactRequestMutation();
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try{
+            await createRequest({
+                surname: surname,
+                name: name, 
+                patronymic: patronymic,
+                email: email,
+                phone: phone,
+                message: message
+            })
+
+            setName('');
+            setSurname('');
+            setPatronymic('');
+            setEmail('');
+            setPhone('');
+            setMessage('');
+
+            alert('Обращение успешно отправлено')
+        } catch(e) {
+            console.log(e);
+            throw e;
+        }
+    }
+
     return (
         <div className="contacts-page">
             <div className="contacts-page__container">
@@ -10,28 +48,27 @@ function Contacts() {
                     <div className="form__elem">
                         <h4 className="form__subtitle">Как Вас зовут?</h4>
                         <div className="inputs-container">
-                            <input type="text" placeholder="Имя" />
-                            <input type="text" placeholder="Фамилия" />
-                            <input type="text" placeholder="Отчество*" />
+                            <input type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" placeholder="Фамилия" value={surname} onChange={(e) => setSurname(e.target.value)}/>
+                            <input type="text" placeholder="Отчество*" value={patronymic} onChange={(e) => setPatronymic(e.target.value)}/>
                         </div>
 
                     </div>
                     <div className="form__elem">
                         <h4 className="form__subtitle">Контактная информация</h4>
                         <div className="inputs-container">
-                            <input type="email" name="email" id="email" placeholder="Email" />
-                            <input type="tel" name="tel" id="tel" placeholder="Телефон" />
+                            <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="tel" name="tel" id="tel" placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                         </div>
 
                     </div>
                     <div className="form__elem">
                         <h4 className="form__subtitle">Вопросы / Комментарии</h4>
                         <div className="inputs-container">
-                            <textarea className="msg" placeholder="Сообщение" />
-
+                            <textarea className="msg" placeholder="Сообщение" value={message} onChange={(e) => setMessage(e.target.value)}/>
                         </div>
                     </div>
-                    <button className="btn-submit">Отправить</button>
+                    <button className="btn-submit" onClick={(e) => handleSubmit(e)}>Отправить</button>
                 </form>
 
                 <div className="info-container">

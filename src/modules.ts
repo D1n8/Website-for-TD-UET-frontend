@@ -39,3 +39,25 @@ export interface INews {
     image: string,
     published_at: string
 }
+
+export interface IContactRequests{
+    id: number,
+    surname: string,
+    name: string,
+    patronymic: string,
+    email: string,
+    phone: string,
+    message: string
+}
+
+export interface IApplication{
+    id: number,
+    name: string,
+    surname: string, 
+    patronymic: string,
+    email: string,
+    phone: string,
+    resume_text: string,
+    resume_file: string,
+    vacancy: number
+}

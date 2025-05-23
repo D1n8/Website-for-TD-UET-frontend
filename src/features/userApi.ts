@@ -40,6 +40,16 @@ const baseQueryWithReauth: BaseQueryFn<
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
+  // Проверка: нужно ли пропустить авторизацию
+  const skipAuth =
+    typeof args === 'object' &&
+    'headers' in args &&
+    (args.headers as Record<string, string>)?.skipAuth === 'true';
+
+  if (skipAuth) {
+    return baseQuery(args, api, extraOptions);
+  }
+
   let result = await baseQuery(args, api, extraOptions);
 
   if (result.error && result.error.status === 401) {
@@ -63,7 +73,6 @@ const baseQueryWithReauth: BaseQueryFn<
       };
 
       api.dispatch(setAuth({ accessToken, refreshToken, role }));
-
       result = await baseQuery(args, api, extraOptions);
     } else {
       api.dispatch(logout());
