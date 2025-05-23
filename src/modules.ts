@@ -37,5 +37,5 @@ export interface INews {
     title: string,
     content: string,
     image: string,
-    published_at: Date
+    published_at: string
 }

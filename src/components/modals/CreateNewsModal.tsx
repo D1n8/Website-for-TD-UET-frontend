@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
+import { useCreateNewsMutation } from "../../features/newsApi";
 
 interface ICreateNewsProps {
     isOpen: boolean,
@@ -10,6 +11,27 @@ function CreateNewsModal({ isOpen, onClose }: ICreateNewsProps) {
     const [title, setTitle] = useState<string>('');
     const [content, setContent] = useState<string>('');
     const [image, setImage] = useState<File | null>(null);
+    const [createNews] = useCreateNewsMutation();
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('published_at', new Date().toISOString());
+        if (image) {
+            formData.append('image', image);
+        }
+
+        try {
+            await createNews(formData).unwrap();
+            onClose();
+        } catch (error) {
+            console.error("Ошибка при создании:", error);
+        }
+    };
+
 
     return (<>
         {
@@ -27,10 +49,10 @@ function CreateNewsModal({ isOpen, onClose }: ICreateNewsProps) {
                         </div>
                         <div className="input-box">
                             <label htmlFor="img">Изображение:</label>
-                            <input type="file" id="img" accept='image/*' onChange={(e) => setImage(e.target.files && e.target.files[0])}/>
+                            <input type="file" id="img" accept='image/*' onChange={(e) => setImage(e.target.files && e.target.files[0])} />
                         </div>
                     </form>
-                    <button className="btn">Сохранить</button>
+                    <button className="btn" onClick={(e) => handleSubmit(e)}>Сохранить</button>
 
                 </Modal>
             )

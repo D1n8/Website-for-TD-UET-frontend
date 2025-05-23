@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { IVacancy } from '../modules';
-import baseQueryWithReauth from './userApi'; // путь должен быть до baseQueryWithReauth, а не весь userApi!
+import baseQueryWithReauth from './userApi';
 
 export const vacanciesApi = createApi({
   reducerPath: 'vacanciesApi',

@@ -7,7 +7,7 @@ import { parseDate, parseEmploymentType, parseExperienceType, parseFormatType } 
 import UpdateVacancyModal from "../modals/UpdateVacancyModal";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import DeleteVacancyModal from "../modals/DeleteVacancyModal";
+import DeleteModal from "../modals/DeleteModal";
 
 const VacancyDetails = () => {
     const { id } = useParams<{ id: string }>();
@@ -93,7 +93,7 @@ const VacancyDetails = () => {
                 </div>
             </div>
             <ApplyModal isOpen={isOpenApply} onClose={() => setIsOpenApply(false)}></ApplyModal>
-            <DeleteVacancyModal isOpen={isOpenDeleteVacancy} onClose={() => setIsOpenDeleteVacancy(false)} id={vacancy ? vacancy.id : 0}/>
+            <DeleteModal isOpen={isOpenDeleteVacancy} onClose={() => setIsOpenDeleteVacancy(false)} id={vacancy ? vacancy.id : 0} type="vacancy"/>
             <UpdateVacancyModal isOpen={isOpenUpdateVacancy} onClose={() => setIsOpenUpdateVacancy(false)} vacancy={vacancy ? vacancy : { id: 0, title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }} />
         </div>
     );
