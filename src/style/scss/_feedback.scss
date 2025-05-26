@@ -1,11 +1,12 @@
 .feedback-page {
-    padding-top: 20px;
+    padding-block: 20px;
     max-width: 1400px;
     margin: 0 auto;
 
     &__container {
         display: flex;
-        gap: 50px;
+        gap: 70px;
+        flex-wrap: wrap;
     }
 
     &__title{
@@ -16,8 +17,8 @@
 }
 
 .feedback-card {
+    width: 420px;
     min-width: 300px;
-    max-width: 400px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -26,7 +27,6 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         justify-content: space-between;
     }
 

@@ -31,13 +31,6 @@
         position: relative;
     }
 
-    .close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        border: none;
-        background-color: transparent;
-    }
 
     .first-last-name-container {
         display: flex;
@@ -105,4 +98,14 @@
     //     color: #222;
     //     background-color: #FFD700;
     // }
+}
+
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }

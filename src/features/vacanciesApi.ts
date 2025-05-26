@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { IVacancy } from '../modules';
-import baseQueryWithReauth from './userApi';
+import baseQueryWithReauth from './baseQueryWithReauth';
 
 export const vacanciesApi = createApi({
   reducerPath: 'vacanciesApi',
@@ -14,7 +14,8 @@ export const vacanciesApi = createApi({
         title?: string;
         format_type?: string;
         location?: string;
-        experience_type: string;
+        experience_type?: string;
+        activities?: string;
       }
     >({
       query: (params) => {
@@ -24,8 +25,12 @@ export const vacanciesApi = createApi({
         if (params?.format_type) searchParams.append('format_type', params.format_type);
         if (params?.location) searchParams.append('location', params.location);
         if (params?.experience_type) searchParams.append('experience_type', params.experience_type);
+        if (params?.activities) searchParams.append('activities', params.activities);
 
-        return `api/vacancies/?${searchParams.toString()}`;
+        return {
+          url: `api/vacancies/?${searchParams.toString()}`,
+          method: 'GET'
+        };
       },
       providesTags: ['Vacancy'],
     }),

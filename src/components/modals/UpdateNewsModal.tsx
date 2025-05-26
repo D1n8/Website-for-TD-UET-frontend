@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { INews } from "../../modules";
 import { useUpdateNewsMutation } from "../../features/newsApi";
@@ -16,6 +16,12 @@ function UpdateNewsModal({ isOpen, onClose, news }: IUpdateNewsProps) {
 
     const [updateNews] = useUpdateNewsMutation();
 
+    useEffect(() => {
+        setTitle(news.title);
+        setContent(news.content);
+        setImage(null);
+    }, [news]);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -28,37 +34,58 @@ function UpdateNewsModal({ isOpen, onClose, news }: IUpdateNewsProps) {
         }
 
         try {
-            await updateNews({id: news.id, formData: formData}).unwrap();
+            await updateNews({ id: news.id, formData: formData }).unwrap();
             onClose();
         } catch (error) {
             console.error("Ошибка при создании:", error);
         }
     };
 
-     return (<>
-        {
-            isOpen && (
+    return (
+        <>
+            {isOpen && (
                 <Modal onClose={onClose}>
-                    <h2 className="modal__title">Создать новость</h2>
-                    <form className="news-modal">
+                    <button className="close" onClick={onClose}>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                            <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+                        </svg>
+                    </button>
+                    <h2 className="modal__title">Редактировать новость</h2>
+                    <form className="news-modal" onSubmit={handleSubmit}>
                         <div className="input-box">
                             <label htmlFor="title">Заголовок:</label>
-                            <input type="text" id='title' placeholder="Заголовок" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="Заголовок"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
                         </div>
                         <div className="input-box">
                             <label htmlFor="content">Текст:</label>
-                            <textarea id="content" placeholder="Текст" value={content} onChange={(e) => setContent(e.target.value)} />
+                            <textarea
+                                id="content"
+                                placeholder="Текст"
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                            />
                         </div>
                         <div className="input-box">
                             <label htmlFor="img">Изображение:</label>
-                            <input type="file" id="img" accept='image/*' onChange={(e) => setImage(e.target.files && e.target.files[0])}/>
+                            <input
+                                type="file"
+                                id="img"
+                                accept="image/*"
+                                onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}
+                            />
                         </div>
+                        <button type="submit" className="btn">Сохранить</button>
                     </form>
-                    <button className="btn" onClick={(e) => handleSubmit(e)}>Сохранить</button>
-
                 </Modal>
-            )
-        }</>);
+            )}
+        </>
+    );
 }
 
 export default UpdateNewsModal;

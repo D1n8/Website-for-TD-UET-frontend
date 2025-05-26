@@ -1,8 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { BaseQueryFn, FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import type { RootState } from '../store';
-import { setAuth, logout } from './authSlice';
-import { FetchArgs } from '@reduxjs/toolkit/query';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import baseQueryWithReauth from './baseQueryWithReauth';
 
 interface IRegisterAdminRequest {
   email: string;
@@ -24,67 +21,6 @@ interface ITokenResponse {
   refresh: string;
 }
 
-const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_URL,
-  prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.accessToken;
-    if (token) {
-      headers.set('Authorization', `Bearer ${token}`);
-    }
-    return headers;
-  },
-});
-
-const baseQueryWithReauth: BaseQueryFn<
-  string | FetchArgs,
-  unknown,
-  FetchBaseQueryError
-> = async (args, api, extraOptions) => {
-  // Проверка: нужно ли пропустить авторизацию
-  const skipAuth =
-    typeof args === 'object' &&
-    'headers' in args &&
-    (args.headers as Record<string, string>)?.skipAuth === 'true';
-
-  if (skipAuth) {
-    return baseQuery(args, api, extraOptions);
-  }
-
-  let result = await baseQuery(args, api, extraOptions);
-
-  if (result.error && result.error.status === 401) {
-    const refreshToken = (api.getState() as RootState).auth.refreshToken;
-
-    const refreshResult = await baseQuery(
-      {
-        url: '/api/token/refresh/',
-        method: 'POST',
-        body: { refresh: refreshToken },
-      },
-      api,
-      extraOptions
-    );
-
-    if (refreshResult.data) {
-      const { accessToken, refreshToken, role } = refreshResult.data as {
-        accessToken: string;
-        refreshToken: string;
-        role: string;
-      };
-
-      api.dispatch(setAuth({ accessToken, refreshToken, role }));
-      result = await baseQuery(args, api, extraOptions);
-    } else {
-      api.dispatch(logout());
-    }
-  }
-
-  return result;
-};
-
-export default baseQueryWithReauth;
-
-
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: baseQueryWithReauth,
@@ -96,7 +32,6 @@ export const userApi = createApi({
         body,
       }),
     }),
-
     login: builder.mutation<ITokenResponse, IAuthRequest>({
       query: (body) => ({
         url: 'api/token/',
@@ -104,7 +39,6 @@ export const userApi = createApi({
         body,
       }),
     }),
-
     refreshToken: builder.mutation<ITokenResponse, { refresh: string }>({
       query: (body) => ({
         url: 'api/token/refresh/',

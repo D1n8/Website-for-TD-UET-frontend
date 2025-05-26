@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import baseQueryWithReauth from './userApi';
+import baseQueryWithReauth from './baseQueryWithReauth';
 import { IApplication } from '../modules';
 
 export const applicationsApi = createApi({
@@ -12,30 +12,12 @@ export const applicationsApi = createApi({
       providesTags: ['Applications'],
     }),
 
-    createApplication: builder.mutation<IApplication, Omit<IApplication, 'id'>>({
-      query: (newApplication) => {
-        const formData = new FormData();
-        formData.append('name', newApplication.name);
-        formData.append('surname', newApplication.surname);
-        formData.append('patronymic', newApplication.patronymic);
-        formData.append('email', newApplication.email);
-        formData.append('phone', newApplication.phone);
-        formData.append('resume_text', newApplication.resume_text);
-        formData.append('vacancy', newApplication.vacancy.toString());
-
-        if (newApplication.resume_file) {
-          formData.append('resume_file', newApplication.resume_file);
-        }
-
-        return {
-          url: 'api/applications/',
-          method: 'POST',
-          body: formData,
-          headers: {
-            skipAuth: 'true',
-          },
-        };
-      },
+    createApplication: builder.mutation<IApplication, FormData>({
+      query: (formData) => ({
+        url: 'api/applications/',
+        method: 'POST',
+        body: formData,
+      }),
       invalidatesTags: ['Applications'],
     }),
 

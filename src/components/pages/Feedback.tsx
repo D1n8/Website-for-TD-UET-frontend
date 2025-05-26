@@ -10,7 +10,7 @@ function Feedback() {
             <div className="feedback-page__container">
                 {requests && 
                     requests.map((req) => (
-                        <FeedbackCard id={req.id} surname={req.surname} name={req.name} patronymic={req.patronymic} email={req.email} phone={req.phone} message={req.message}/>
+                        <FeedbackCard key={req.id} id={req.id} surname={req.surname} name={req.name} patronymic={req.patronymic} email={req.email} phone={req.phone} message={req.message}/>
                     ))
                 }
             </div>

@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import baseQueryWithReauth from './userApi';
+import baseQueryWithReauth from './baseQueryWithReauth';
 import { INews } from '../modules';
 
 export const newsApi = createApi({

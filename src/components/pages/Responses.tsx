@@ -9,7 +9,7 @@ function Responses() {
         <div className="responses-page__container">
             { applications && 
                 applications.map((res) => (
-                    <ResponseCard id={res.id} name={res.name} surname={res.surname} patronymic={res.patronymic} email={res.email} phone={res.phone} resume_text={res.resume_text} resume_file={res.resume_file} vacancy={res.vacancy}/>
+                    <ResponseCard key={res.id} id={res.id} name={res.name} surname={res.surname} patronymic={res.patronymic} email={res.email} phone={res.phone} resume_text={res.resume_text} resume_file={res.resume_file} vacancy={res.vacancy}/>
                 ))
             }
         </div>

@@ -6,7 +6,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-function Modal({ children, onClose}: ModalProps) {
+function Modal({ children, onClose }: ModalProps) {
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -25,7 +25,11 @@ function Modal({ children, onClose}: ModalProps) {
 
   return createPortal(
     <div className="modal-overlay" onClick={onOverlayClick}>
-      <div className="modal">{children}</div>
+      <div className="modal">
+        <div className="modal__container">
+          {children}
+        </div>
+      </div>
     </div>,
     document.body
   );

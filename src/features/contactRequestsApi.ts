@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { IContactRequests } from '../modules';
-import baseQueryWithReauth from './userApi';
+import baseQueryWithReauth from './baseQueryWithReauth';
 
 export const contactRequestsApi = createApi({
   reducerPath: 'contactRequestsApi',
@@ -16,9 +16,7 @@ export const contactRequestsApi = createApi({
         url: 'api/contact-requests/',
         method: 'POST',
         body: newRequest,
-        headers: {
-          skipAuth: 'true'
-        },
+        meta: { skipAuth: true }
       }),
       invalidatesTags: ['ContactRequests'],
     }),

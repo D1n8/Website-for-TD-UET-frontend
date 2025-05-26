@@ -24,7 +24,7 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
     const [responsibilities, setResponsibilities] = useState<IInput[]>([{ id: Date.now(), name: '' }]);
     const [formatType, setFormatType] = useState<formatType>('office');
     const [employment, setEmployment] = useState<employmentType>('full_time');
-    const [experience, setExperience] = useState<experienceType>('none');
+    const [experience, setExperience] = useState<experienceType>('');
 
     const [createVacancy] = useCreateVacancyMutation();
 
@@ -111,6 +111,11 @@ function CreateVacancyModal({ isOpen, onClose }: CreateVacancyModalProps) {
             {
                 isOpen && (
                     <Modal onClose={onClose}>
+                        <button className="close" onClick={onClose}>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+                            </svg>
+                        </button>
                         <h2 className="modal__title">Создать вакансию</h2>
                         <form className="create-vacancy-modal">
                             <label htmlFor="title">Название</label>

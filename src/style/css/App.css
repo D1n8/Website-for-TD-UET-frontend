@@ -585,13 +585,6 @@
 .apply-modal__textbox {
   position: relative;
 }
-.apply-modal .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: none;
-  background-color: transparent;
-}
 .apply-modal .first-last-name-container {
   display: flex;
   gap: 10px;
@@ -640,6 +633,15 @@
 .apply-modal .btn-container {
   display: flex;
   justify-content: end;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .news-page {
@@ -698,6 +700,7 @@
   display: flex;
   padding: 20px;
   margin-bottom: 30px;
+  justify-content: space-between;
   gap: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -746,7 +749,8 @@
 .news-modal textarea {
   min-width: 89%;
   width: 100%;
-  max-height: 100px;
+  height: 150px;
+  max-height: 200px;
   padding: 10px 5px;
   border-radius: 8px;
   font-size: 16px;
@@ -801,6 +805,9 @@
 .modal__title {
   text-align: center;
   margin-bottom: 10px;
+}
+.modal__container {
+  position: relative;
 }
 
 .modal::-webkit-scrollbar {
@@ -871,13 +878,14 @@
 }
 
 .feedback-page {
-  padding-top: 20px;
+  padding-block: 20px;
   max-width: 1400px;
   margin: 0 auto;
 }
 .feedback-page__container {
   display: flex;
-  gap: 50px;
+  gap: 70px;
+  flex-wrap: wrap;
 }
 .feedback-page__title {
   margin-bottom: 30px;
@@ -886,8 +894,8 @@
 }
 
 .feedback-card {
+  width: 420px;
   min-width: 300px;
-  max-width: 400px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -896,7 +904,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 .feedback-card__who {

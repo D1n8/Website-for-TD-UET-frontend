@@ -25,6 +25,11 @@
     text-align: center;
     margin-bottom: 10px;
   }
+
+  &__container {
+    position: relative;
+
+  }
 }
 
 .modal::-webkit-scrollbar {
@@ -91,7 +96,7 @@
     display: flex;
   }
 
-  .activity-container{
+  .activity-container {
     display: flex;
   }
 
@@ -108,7 +113,7 @@
     color: black;
   }
 
-  .type-selector{
+  .type-selector {
     padding: 10px 5px;
   }
 }

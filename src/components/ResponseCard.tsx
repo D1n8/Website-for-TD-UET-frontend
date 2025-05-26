@@ -11,7 +11,7 @@ function ResponseCard(props: IApplication) {
                 <h3 className="response-card__who">{props.surname} {props.name} {props.patronymic}</h3>
                 <p className="response-card__info"><strong>Email:</strong> {props.email}</p>
                 <p className="response-card__info"><strong>Телефон:</strong> {props.phone}</p>
-                <p className="response-card__resume"><strong>Резюме:</strong> {props.resume_text}</p>
+                <p className="response-card__resume"><strong>Сопроводительное письмо:</strong> {props.resume_text}</p>
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                     <a
                         href={props.resume_file}

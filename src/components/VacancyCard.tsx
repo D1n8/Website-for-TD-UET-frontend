@@ -49,7 +49,7 @@ export const VacancyCard = (props: IVacancyCard) => {
         </div>
         <p className="date">{formattedDate}</p>
       </div>
-      <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)}></ApplyModal>
+      <ApplyModal isOpen={isOpen} onClose={() => setIsOpen(false)} id={props.id}></ApplyModal>
     </div>
   );
 };

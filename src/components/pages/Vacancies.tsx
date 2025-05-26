@@ -12,7 +12,7 @@ const Vacancies = () => {
   const [minSalary, setMinSalary] = useState<string>('');
   const [formatType, setFormatType] = useState<formatType>('');
   const [location, setLocation] = useState<string>('');
-  const [experience, setExperience] = useState<experienceType>('none');
+  const [experience, setExperience] = useState<experienceType>('');
 
   const role = useSelector((state: RootState) => state.auth.role);
 
@@ -31,7 +31,7 @@ const Vacancies = () => {
     setMinSalary('');
     setFormatType('');
     setLocation('');
-    setExperience('none')
+    setExperience('')
   }
 
   return (
@@ -76,7 +76,7 @@ const Vacancies = () => {
             <p className="filters__label">Опыт работы</p>
             <div className="radio-group">
               <label className="radio-option">
-                <input type="radio" name="experience" value="none" checked={experience === 'none'} onChange={(e) => setExperience(e.target.value as experienceType)}/>
+                <input type="radio" name="experience" value="" checked={experience === ''} onChange={(e) => setExperience(e.target.value as experienceType)}/>
                 <span>Не имеет значения</span>
               </label>
               <label className="radio-option">

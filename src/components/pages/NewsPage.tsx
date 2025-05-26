@@ -29,7 +29,7 @@ function NewsPage() {
                     <div className="main-news__textbox">
                         <div className="main-news__text">
                             <h3 className="main-news__title">{topNews.title}</h3>
-                            <p className="main-news__text">{topNews.content}</p>
+                            <p className="main-news__text" style={{ whiteSpace: 'pre-line' }}>{topNews.content}</p>
                         </div>
 
                         <p className="main-news__date">{format(topNews.published_at, 'dd.MM.yyyy')}</p>

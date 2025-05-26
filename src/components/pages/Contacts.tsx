@@ -43,13 +43,13 @@ function Contacts() {
         <div className="contacts-page">
             <div className="contacts-page__container">
                 <h2 className="contacts-page__title">Связаться с нами</h2>
-                <form className="form" action="#">
+                <form className="form" action="#" onSubmit={handleSubmit}>
                     <h3 className="form__title">Форма обратной связи</h3>
                     <div className="form__elem">
                         <h4 className="form__subtitle">Как Вас зовут?</h4>
                         <div className="inputs-container">
-                            <input type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)}/>
-                            <input type="text" placeholder="Фамилия" value={surname} onChange={(e) => setSurname(e.target.value)}/>
+                            <input type="text" placeholder="Имя" value={name} onChange={(e) => setName(e.target.value)} required/>
+                            <input type="text" placeholder="Фамилия" value={surname} onChange={(e) => setSurname(e.target.value)} required/>
                             <input type="text" placeholder="Отчество*" value={patronymic} onChange={(e) => setPatronymic(e.target.value)}/>
                         </div>
 
@@ -57,18 +57,18 @@ function Contacts() {
                     <div className="form__elem">
                         <h4 className="form__subtitle">Контактная информация</h4>
                         <div className="inputs-container">
-                            <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                            <input type="tel" name="tel" id="tel" placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                            <input type="email" name="email" id="email" required placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="tel" name="tel" id="tel" required placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                         </div>
 
                     </div>
                     <div className="form__elem">
                         <h4 className="form__subtitle">Вопросы / Комментарии</h4>
                         <div className="inputs-container">
-                            <textarea className="msg" placeholder="Сообщение" value={message} onChange={(e) => setMessage(e.target.value)}/>
+                            <textarea className="msg" placeholder="Сообщение" required value={message} onChange={(e) => setMessage(e.target.value)}/>
                         </div>
                     </div>
-                    <button className="btn-submit" onClick={(e) => handleSubmit(e)}>Отправить</button>
+                    <button className="btn-submit">Отправить</button>
                 </form>
 
                 <div className="info-container">
@@ -84,7 +84,7 @@ function Contacts() {
                             </a>
                             <a href="#" className="link email">
                                 <svg width="70" height="70" viewBox="0 0 48 48" fill="#FFD700" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M44 12C44 9.8 42.2 8 40 8H8C5.8 8 4 9.8 4 12M44 12V36C44 38.2 42.2 40 40 40H8C5.8 40 4 38.2 4 36V12M44 12L24 26L4 12" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M44 12C44 9.8 42.2 8 40 8H8C5.8 8 4 9.8 4 12M44 12V36C44 38.2 42.2 40 40 40H8C5.8 40 4 38.2 4 36V12M44 12L24 26L4 12" stroke="#1E1E1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                                 Email
                             </a>

@@ -9,7 +9,7 @@ import { VACANCIES_LIST_ROUTE } from "../../consts";
 interface IUpdateVacancyModal {
     isOpen: boolean,
     onClose: () => void,
-    vacancy: IVacancy | { id: 0, title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: 'none' }
+    vacancy: IVacancy | { id: 0, title: '', description: '', salary_max: 0, salary_min: 0, location: '', format_type: 'online', employment_type: 'contract', experience_type: '' }
 }
 
 function UpdateVacancyModal({ isOpen, onClose, vacancy }: IUpdateVacancyModal) {
@@ -129,6 +129,11 @@ function UpdateVacancyModal({ isOpen, onClose, vacancy }: IUpdateVacancyModal) {
             {
                 isOpen && (
                     <Modal onClose={onClose}>
+                        <button className="close" onClick={onClose}>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                                <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+                            </svg>
+                        </button>
                         <h2 className="modal__title">Создать вакансию</h2>
                         <form className="create-vacancy-modal">
                             <label htmlFor="title">Название</label>
