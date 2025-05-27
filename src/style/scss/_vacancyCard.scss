@@ -41,12 +41,12 @@
     font-weight: 600;
   }
 
-  &__employment{
+  &__employment {
     margin-bottom: 5px;
     font-weight: 600;
   }
 
-  &__experience{
+  &__experience {
     margin-bottom: 5px;
     font-weight: 600;
   }
@@ -80,18 +80,24 @@
       color: rgb(34, 34, 34);
       font-weight: 600;
     }
+
+    &_more:active, &_more:hover{
+      background-color: rgb(34, 34, 34);
+      color: #FFFFFF;
+    }
   }
 }
 
 .btn {
   background: rgb(34, 34, 34);
   color: white;
-  border: none;
+  border: 1px solid rgb(34, 34, 34);
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
+  transition: ease-in-out .3s;
 
   &__back {
     border: 1px solid rgb(34, 34, 34);
@@ -99,24 +105,29 @@
     color: rgb(34, 34, 34);
   }
 
-  &__delete{
+  &__delete {
+    border: 1px solid red;
     background-color: red;
     color: white;
   }
 
-  &__update{
+  &__update {
     // background-color: rgb(20, 97, 71);
   }
 
-  &__close{
-    
-  }
+  &__close {}
+}
+
+.btn:active,
+.btn:hover {
+  background-color: #FFFFFF;
+  color: rgb(34, 34, 34);
 }
 
 .create-vac {
   margin-bottom: 30px;
 }
 
-.create-news{
+.create-news {
   margin-bottom: 30px;
 }

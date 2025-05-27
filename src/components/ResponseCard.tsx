@@ -18,7 +18,7 @@ function ResponseCard(props: IApplication) {
                         download
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="response-card__file"
+                        className="btn response-card__file"
                     >
                         Скачать файл резюме
                     </a>

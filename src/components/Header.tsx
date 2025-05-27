@@ -40,7 +40,7 @@ function Header() {
                         <a onClick={() => history(RESPONSES_ROUTE)} className="nav__item">Отклики</a>
                     )}
                     {role === 'admin' && (
-                        <a onClick={() => history(FEEDBACK_ROUTE)} className="nav__item">Обратная связь</a>
+                        <a onClick={() => history(FEEDBACK_ROUTE)} className="nav__item last">Обратная связь</a>
                     )}
                     {role === 'admin' && (
                         <button onClick={() => handleLogout()} className="btn">Выйти</button>

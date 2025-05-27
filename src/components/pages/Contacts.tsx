@@ -68,7 +68,7 @@ function Contacts() {
                             <textarea className="msg" placeholder="Сообщение" required value={message} onChange={(e) => setMessage(e.target.value)}/>
                         </div>
                     </div>
-                    <button className="btn-submit">Отправить</button>
+                    <button className="btn btn-submit">Отправить</button>
                 </form>
 
                 <div className="info-container">

@@ -103,6 +103,7 @@
   .delete-btn {
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
 
   .add-btn {
@@ -110,8 +111,15 @@
     font-size: 14px;
     font-weight: normal;
     background-color: #FFD700;
+    border: 1px solid #FFD700;
     color: black;
   }
+
+  .add-btn:active,
+  .add-btn:hover {
+    color: #FFFFFF;
+  }
+
 
   .type-selector {
     padding: 10px 5px;

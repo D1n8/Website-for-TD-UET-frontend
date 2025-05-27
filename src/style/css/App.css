@@ -179,12 +179,17 @@
   width: 100%;
   padding: 10px 40px;
   border-radius: 6px;
-  background: #FFD700;
+  background-color: #FFD700;
   color: #222;
   border: none;
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+  transition: ease-in-out 0.3s;
+}
+.vacancies .filter-btn-submit:active,
+.vacancies .filter-btn-submit:hover {
+  color: white;
 }
 .vacancies .filter-group {
   margin-bottom: 25px;
@@ -321,16 +326,21 @@
   color: rgb(34, 34, 34);
   font-weight: 600;
 }
+.vacancy-card .btn_more:active, .vacancy-card .btn_more:hover {
+  background-color: rgb(34, 34, 34);
+  color: #FFFFFF;
+}
 
 .btn {
   background: rgb(34, 34, 34);
   color: white;
-  border: none;
+  border: 1px solid rgb(34, 34, 34);
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
+  transition: ease-in-out 0.3s;
 }
 .btn__back {
   border: 1px solid rgb(34, 34, 34);
@@ -338,9 +348,16 @@
   color: rgb(34, 34, 34);
 }
 .btn__delete {
+  border: 1px solid red;
   background-color: red;
   color: white;
 }
+.btn:active,
+.btn:hover {
+  background-color: #FFFFFF;
+  color: rgb(34, 34, 34);
+}
+
 .create-vac {
   margin-bottom: 30px;
 }
@@ -361,12 +378,12 @@
   display: flex;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 15px 0;
 }
 .header .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 15px 0;
 }
 .header .logo {
   width: 50px;
@@ -376,12 +393,24 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+}
+.header .nav__item {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px;
+  height: 100%;
+  transition: ease-in-out 0.3s;
+}
+.header .nav .last {
+  margin-right: 15px;
 }
 .header .nav a {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
+}
+.header .nav__item:active, .header .nav__item:hover {
+  background-color: #eeeeee;
 }
 
 .burger {
@@ -528,6 +557,10 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+}
+.contacts-page .form .btn-submit:active,
+.contacts-page .form .btn-submit:hover {
+  color: white;
 }
 .contacts-page .info-container {
   display: flex;
@@ -865,13 +898,19 @@
 .create-vacancy-modal .delete-btn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .create-vacancy-modal .add-btn {
   padding: 5px;
   font-size: 14px;
   font-weight: normal;
   background-color: #FFD700;
+  border: 1px solid #FFD700;
   color: black;
+}
+.create-vacancy-modal .add-btn:active,
+.create-vacancy-modal .add-btn:hover {
+  color: #FFFFFF;
 }
 .create-vacancy-modal .type-selector {
   padding: 10px 5px;
@@ -962,6 +1001,12 @@
   border-radius: 8px;
   background-color: #FFD700;
   font-size: 18px;
+  color: #222;
+  border: 1px solid #FFD700;
+}
+.response-card__file:active, .response-card__file:hover {
+  color: white;
+  background-color: #FFD700;
 }
 
 * {

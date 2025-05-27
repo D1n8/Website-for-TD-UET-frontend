@@ -13,7 +13,7 @@ function NewsPage() {
     const [isOpenDeleteNews, setIsOpenDeleteNews] = useState(false);
     const [isOpenUpdateNews, setIsOpenUpdateNews] = useState(false);
 
-    const { data: news } = useGetAllNewsQuery();
+    const { data: news, isLoading } = useGetAllNewsQuery();
 
     const role = useSelector((state: RootState) => state.auth.role);
 
@@ -23,6 +23,8 @@ function NewsPage() {
     return (<div className="news-page">
         <div className="news-page__container">
             <h2 className="news-page__title">Новости</h2>
+            { isLoading && <>Загружаем новости</>}
+
             {role == 'admin' && (<button className="btn create-news" onClick={() => setIsOpenCreateNews(true)}>Создать новость</button>)}
             {topNews &&
                 <div className="main-news">
